@@ -33,6 +33,9 @@ dependencies = [
     "claude-test-reporter @ git+https://github.com/grahama1970/claude-test-reporter.git",
     "claude-module-communicator @ git+https://github.com/grahama1970/claude-module-communicator.git",
     "spacy>=3.8.7",
+    "youtube-dl>=2021.12.17",
+    "yt-dlp>=2025.5.22",
+    "whisper>=1.1.10",
 ]
 
 [project.optional-dependencies]
@@ -99,3 +102,10 @@ python_version = "3.10"
 warn_return_any = true
 warn_unused_configs = true
 ignore_missing_imports = true
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=1.0.0",
+    "pytest-cov>=6.1.1",
+]
