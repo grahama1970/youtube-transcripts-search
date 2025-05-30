@@ -1,0 +1,26 @@
+2025-05-28 09:03:12.794 | ERROR    | arangodb.core.constants:<module>:218 - Enhanced configuration validation failed: If you use `@root_validator` with pre=False (the default) you MUST specify `skip_on_failure=True`. Note that `@root_validator` is deprecated and should be replaced with `@model_validator`.
+
+For further information visit https://errors.pydantic.dev/2.11/u/root-validator-pre-skip
+2025-05-28 09:03:12.794 | WARNING  | arangodb.core.constants:<module>:219 - Falling back to legacy validation
+2025-05-28 09:03:12.795 | DEBUG    | arangodb.core.utils.dependency_checker:check_dependency:99 - Dependency 'python-arango' is available
+2025-05-28 09:03:12.848 | DEBUG    | arangodb.core.utils.dependency_checker:check_dependency:99 - Dependency 'numpy' is available
+2025-05-28 09:03:13.968 | DEBUG    | arangodb.core.utils.dependency_checker:check_dependency:99 - Dependency 'torch' is available
+2025-05-28 09:03:14.341 | DEBUG    | arangodb.core.utils.dependency_checker:check_dependency:99 - Dependency 'transformers' is available
+2025-05-28 09:03:16.417 | DEBUG    | arangodb.core.utils.dependency_checker:check_dependency:99 - Dependency 'sentence-transformers' is available
+2025-05-28 09:03:16.418 | INFO     | arangodb.core.utils.embedding_utils:<module>:15 - Transformers library is available for embeddings
+2025-05-28 09:03:16.418 | WARNING  | arangodb.core.utils.embedding_utils:<module>:24 - Failed to import config, using default embedding settings
+2025-05-28 09:03:21.421 | INFO     | youtube_transcripts.core.utils.embedding_utils:<module>:15 - Transformers library is available for embeddings
+2025-05-28 09:03:21.422 | WARNING  | youtube_transcripts.core.utils.embedding_utils:<module>:24 - Failed to import config, using default embedding settings
+2025-05-28 09:03:31.501 | INFO     | youtube_transcripts.core.utils.embedding_utils:get_embedding:73 - Generating embedding for text: Test transcript content...
+2025-05-28 09:03:31.501 | INFO     | youtube_transcripts.core.utils.embedding_utils:_initialize_model:41 - Initializing embedding model: BAAI/bge-large-en-v1.5
+2025-05-28 09:03:32.881 | INFO     | youtube_transcripts.core.utils.embedding_utils:_initialize_model:48 - Model loaded on GPU
+Warning: ArangoDB not available, some features disabled
+✅ Test 1: Basic optimization passed
+⚠️  Test 2 skipped (ArangoDB not available): cannot import name 'SearchService' from 'arangodb.core.search' (/home/graham/workspace/experiments/youtube_transcripts/.venv/lib/python3.12/site-packages/arangodb/core/search/__init__.py)
+✅ Test 3: GitHub extraction passed
+⚠️  Test 4 skipped (arXiv MCP not available): Command '['python', '-m', 'arxiv_mcp_server', '--test']' timed out after 10 seconds
+✅ Test 5: Embedding generation passed
+
+==================================================
+Validation Summary: 3/3 tests passed
+🎉 All validation tests passed!

@@ -1,0 +1,227 @@
+# youtube_transcripts/src/youtube_transcripts/verl_config/search_rl.yaml
+# VERL Configuration for Search Agent Training
+# Based on S3 and Deep Retrieval methodologies from the transcript
+
+trainer:
+  type: "ppo"  # Can also use grpo, dapo for better performance
+  
+  # Model configuration
+  model:
+    search_agent:
+      name: "qwen2.5:3b"  # Matches DeepRetrieval's model
+      device_map: "auto"
+      load_in_8bit: false
+      
+    reward_model:
+      type: "gain_beyond_rag"  # Custom reward from S3 paper
+      baseline: "naive_rag"
+      
+  # Training hyperparameters
+  training:
+    batch_size: 32
+    mini_batch_size: 8
+    gradient_accumulation_steps: 4
+    
+    # PPO specific
+    ppo_epochs: 3
+    learning_rate: 1e-5
+    adam_epsilon: 1e-5
+    max_grad_norm: 0.5
+    
+    # RL specific
+    gamma: 0.99
+    lam: 0.95
+    cliprange: 0.2
+    cliprange_value: 0.2
+    vf_coef: 0.5
+    entropy_coef: 0.01
+    
+  # Rollout configuration
+  rollout:
+    num_rollout_workers: 4
+    num_episodes_per_worker: 16
+    max_episode_length: 10  # Max search iterations
+    
+    # Search specific
+    temperature: 0.7
+    top_k: 50
+    top_p: 0.9
+    
+  # Reward configuration
+  reward:
+    # Gain Beyond RAG components
+    gbr_weight: 1.0
+    diversity_weight: 0.2
+    coverage_weight: 0.1
+    efficiency_weight: 0.1  # Penalize too many searches
+    
+    # Success metrics from DeepRetrieval
+    thresholds:
+      excellent: 
+        min_results: 10
+        reward: 5.0
+      good:
+        min_results: 7
+        reward: 4.0
+      acceptable:
+        min_results: 5
+        reward: 3.0
+      marginal:
+        min_results: 3
+        reward: 1.0
+      poor:
+        min_results: 1
+        reward: 0.5
+      none:
+        min_results: 0
+        reward: -3.5
+    
+  # Infrastructure
+  infrastructure:
+    num_gpus: 1  # Can scale to multiple GPUs
+    mixed_precision: true
+    gradient_checkpointing: true
+    
+  # Logging
+  logging:
+    log_interval: 10
+    save_interval: 100
+    eval_interval: 50
+    wandb:
+      project: "youtube-search-rl"
+      entity: "your-entity"
+      
+# Multi-agent configuration
+multi_agent:
+  enabled: true
+  agents:
+    - name: "general_search"
+      model: "qwen2.5:3b"
+      specialization: "general"
+      
+    - name: "technical_search"
+      model: "qwen2.5:3b"
+      specialization: "machine_learning"
+      fine_tuned_checkpoint: null  # Can load specialized model
+      topics:
+        - "neural networks"
+        - "transformers"
+        - "reinforcement learning"
+        - "fine-tuning"
+      
+    - name: "code_search"
+      model: "deepseek-coder:1.3b"
+      specialization: "code"
+      topics:
+        - "implementation"
+        - "tutorial"
+        - "debugging"
+        - "optimization"
+      
+    - name: "research_search"
+      model: "qwen2.5:3b"
+      specialization: "papers"
+      topics:
+        - "arxiv"
+        - "research"
+        - "state-of-the-art"
+        - "benchmark"
+      
+  coordination:
+    strategy: "domain_routing"  # Route queries to specialized agents
+    fallback: "general_search"
+    confidence_threshold: 0.7
+    
+# Advanced features from transcript
+advanced:
+  # Volcano Engine specific optimizations
+  volcano_engine:
+    enabled: true
+    mixed_precision_training: true
+    
+  # Reinforcement learning enhancements
+  algorithm_variants:
+    use_grpo: false  # Group Relative Policy Optimization
+    use_dapo: false  # Can enable for better math/reasoning
+    use_deepretrieval: true  # 65% recall improvement
+    
+  # Search optimizations
+  search:
+    enable_multi_turn: true  # Multi-turn search refinement
+    enable_tool_calling: false  # Can integrate external tools
+    max_parallel_searches: 3
+    use_think_tags: true  # DeepRetrieval <think> reasoning
+    
+  # From S3 paper
+  s3_optimizations:
+    decouple_search_generation: true
+    modular_search_agent: true
+    lightweight_training: true  # 70x less data needed
+    
+# Channel-specific configurations
+channels:
+  TrelisResearch:
+    url: "https://www.youtube.com/@TrelisResearch"
+    topics:
+      - "LLM training"
+      - "fine-tuning"
+      - "MCTS"
+      - "inference optimization"
+    search_boost: 1.2  # Boost results from this channel
+    
+  DiscoverAI:
+    url: "https://www.youtube.com/@code4AI"
+    topics:
+      - "AI news"
+      - "tools"
+      - "frameworks"
+      - "VERL"
+    search_boost: 1.1
+    
+  TwoMinutePapers:
+    url: "https://www.youtube.com/@TwoMinutePapers"
+    topics:
+      - "research papers"
+      - "breakthroughs"
+      - "visualizations"
+    search_boost: 1.0
+    
+  YannicKilcher:
+    url: "https://www.youtube.com/@YannicKilcher"
+    topics:
+      - "paper analysis"
+      - "deep dives"
+      - "theory"
+    search_boost: 1.0
+
+# DeepRetrieval specific settings
+deepretrieval:
+  # Model settings
+  model_name: "qwen2.5:3b"
+  use_local_ollama: true
+  vllm_endpoint: "http://localhost:8000"
+  
+  # Training data
+  min_training_episodes: 1000
+  synthetic_query_generation: true
+  query_variations:
+    prefixes:
+      - ""
+      - "explain "
+      - "tutorial on "
+      - "how to implement "
+      - "best practices for "
+    suffixes:
+      - ""
+      - " for beginners"
+      - " advanced techniques"
+      - " with code examples"
+      - " research papers"
+      
+  # Evaluation
+  test_queries:
+    - "VERL volcano engine reinforcement learning"
+    - "Monte Carlo tree search for LLMs"
+    - "DeepSeek R1 implementation"
+    - "Unsloth LoRA fine-tuning"
+    - "ArangoDB graph traversal"

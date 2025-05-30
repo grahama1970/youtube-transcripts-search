@@ -1,0 +1,15 @@
+2025-05-28 09:01:39.395 | INFO     | youtube_transcripts.core.utils.embedding_utils:<module>:15 - Transformers library is available for embeddings
+2025-05-28 09:01:39.395 | WARNING  | youtube_transcripts.core.utils.embedding_utils:<module>:24 - Failed to import config, using default embedding settings
+2025-05-28 09:01:49.469 | INFO     | youtube_transcripts.core.utils.embedding_utils:get_embedding:73 - Generating embedding for text: Test transcript content...
+2025-05-28 09:01:49.469 | INFO     | youtube_transcripts.core.utils.embedding_utils:_initialize_model:41 - Initializing embedding model: BAAI/bge-large-en-v1.5
+2025-05-28 09:01:51.932 | INFO     | youtube_transcripts.core.utils.embedding_utils:_initialize_model:48 - Model loaded on GPU
+Warning: ArangoDB not available, some features disabled
+✅ Test 1: Basic optimization passed
+⚠️  Test 2 skipped (ArangoDB not available): No module named 'arangodb'
+✅ Test 3: GitHub extraction passed
+⚠️  Test 4 skipped (arXiv MCP not available): Command '['python', '-m', 'arxiv_mcp_server', '--test']' timed out after 10 seconds
+✅ Test 5: Embedding generation passed
+
+==================================================
+Validation Summary: 3/3 tests passed
+🎉 All validation tests passed!

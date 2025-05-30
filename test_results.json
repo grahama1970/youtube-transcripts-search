@@ -1,0 +1,939 @@
+{
+  "created": 1748439773.0523822,
+  "duration": 40.308942794799805,
+  "exitcode": 1,
+  "root": "/home/graham/workspace/experiments/youtube_transcripts",
+  "environment": {},
+  "summary": {
+    "passed": 18,
+    "failed": 5,
+    "total": 23,
+    "collected": 23
+  },
+  "collectors": [
+    {
+      "nodeid": "",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests",
+          "type": "Dir"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/cli",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/core",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/mcp",
+      "outcome": "passed",
+      "result": []
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_manager_task_submission",
+          "type": "Coroutine",
+          "lineno": 37
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution",
+          "type": "Coroutine",
+          "lineno": 63
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_progress_tracking",
+          "type": "Coroutine",
+          "lineno": 91
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_message_passing",
+          "type": "Coroutine",
+          "lineno": 112
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_concurrent_agent_execution",
+          "type": "Coroutine",
+          "lineno": 145
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_error_handling",
+          "type": "Coroutine",
+          "lineno": 168
+        },
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem::test_task_cancellation",
+          "type": "Coroutine",
+          "lineno": 187
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_agents.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_agents.py::TestAgentSystem",
+          "type": "Class"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_initialize_database_creates_tables",
+          "type": "Function",
+          "lineno": 37
+        },
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_add_transcript_with_real_data",
+          "type": "Function",
+          "lineno": 56
+        },
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_search_transcripts_with_special_characters",
+          "type": "Function",
+          "lineno": 90
+        },
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_search_ranking_with_real_data",
+          "type": "Function",
+          "lineno": 128
+        },
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_channel_filtering",
+          "type": "Function",
+          "lineno": 170
+        },
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations::test_cleanup_old_transcripts",
+          "type": "Function",
+          "lineno": 193
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_database.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_database.py::TestDatabaseOperations",
+          "type": "Class"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py::TestRealYouTube",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_extract_video_id",
+          "type": "Function",
+          "lineno": 23
+        },
+        {
+          "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_fetch_real_transcript",
+          "type": "Function",
+          "lineno": 37
+        },
+        {
+          "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_get_channel_videos_real",
+          "type": "Function",
+          "lineno": 54
+        },
+        {
+          "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_process_channels_with_empty_list",
+          "type": "Function",
+          "lineno": 78
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_real_youtube.py::TestRealYouTube",
+          "type": "Class"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization",
+          "type": "Function",
+          "lineno": 66
+        },
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization",
+          "type": "Function",
+          "lineno": 93
+        },
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search",
+          "type": "Function",
+          "lineno": 111
+        },
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly",
+          "type": "Function",
+          "lineno": 132
+        },
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling",
+          "type": "Function",
+          "lineno": 154
+        },
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search",
+          "type": "Function",
+          "lineno": 168
+        }
+      ]
+    },
+    {
+      "nodeid": "tests/test_unified_search.py",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/test_unified_search.py::TestUnifiedSearch",
+          "type": "Class"
+        }
+      ]
+    },
+    {
+      "nodeid": "tests",
+      "outcome": "passed",
+      "result": [
+        {
+          "nodeid": "tests/cli",
+          "type": "Dir"
+        },
+        {
+          "nodeid": "tests/core",
+          "type": "Dir"
+        },
+        {
+          "nodeid": "tests/mcp",
+          "type": "Dir"
+        },
+        {
+          "nodeid": "tests/test_agents.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/test_database.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/test_real_youtube.py",
+          "type": "Module"
+        },
+        {
+          "nodeid": "tests/test_unified_search.py",
+          "type": "Module"
+        }
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_manager_task_submission",
+      "lineno": 37,
+      "outcome": "passed",
+      "keywords": [
+        "test_agent_manager_task_submission",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.008672220632433891,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 5.604581336025149,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0006568650715053082,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution",
+      "lineno": 63,
+      "outcome": "passed",
+      "keywords": [
+        "test_search_optimizer_agent_execution",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.008831764105707407,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 4.960491428151727,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0006090831011533737,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_progress_tracking",
+      "lineno": 91,
+      "outcome": "passed",
+      "keywords": [
+        "test_agent_progress_tracking",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.00816867919638753,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.0005678748711944,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0006738449446856976,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_message_passing",
+      "lineno": 112,
+      "outcome": "passed",
+      "keywords": [
+        "test_agent_message_passing",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.009164151269942522,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.004081768915057182,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0002551460638642311,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_concurrent_agent_execution",
+      "lineno": 145,
+      "outcome": "passed",
+      "keywords": [
+        "test_concurrent_agent_execution",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.007223979104310274,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 8.600462724920362,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005887728184461594,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_agent_error_handling",
+      "lineno": 168,
+      "outcome": "passed",
+      "keywords": [
+        "test_agent_error_handling",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.008568427059799433,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 1.006075179670006,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0005804719403386116,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_agents.py::TestAgentSystem::test_task_cancellation",
+      "lineno": 187,
+      "outcome": "passed",
+      "keywords": [
+        "test_task_cancellation",
+        "asyncio",
+        "pytestmark",
+        "TestAgentSystem",
+        "test_agents.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.008653209079056978,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.16211940580979,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0004929909482598305,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_initialize_database_creates_tables",
+      "lineno": 37,
+      "outcome": "passed",
+      "keywords": [
+        "test_initialize_database_creates_tables",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0035919579677283764,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0005600317381322384,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00021897535771131516,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_add_transcript_with_real_data",
+      "lineno": 56,
+      "outcome": "passed",
+      "keywords": [
+        "test_add_transcript_with_real_data",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0027001588605344296,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.001977072563022375,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00010037235915660858,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_search_transcripts_with_special_characters",
+      "lineno": 90,
+      "outcome": "passed",
+      "keywords": [
+        "test_search_transcripts_with_special_characters",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0018299096263945103,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.004232402890920639,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00010351324453949928,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_search_ranking_with_real_data",
+      "lineno": 128,
+      "outcome": "passed",
+      "keywords": [
+        "test_search_ranking_with_real_data",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0020455350168049335,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.004150521010160446,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00014942418783903122,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_channel_filtering",
+      "lineno": 170,
+      "outcome": "passed",
+      "keywords": [
+        "test_channel_filtering",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.0020126337185502052,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00448019802570343,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 9.958213195204735e-05,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_database.py::TestDatabaseOperations::test_cleanup_old_transcripts",
+      "lineno": 193,
+      "outcome": "failed",
+      "keywords": [
+        "test_cleanup_old_transcripts",
+        "TestDatabaseOperations",
+        "test_database.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.001872821245342493,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0045787012204527855,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/graham/workspace/experiments/youtube_transcripts/tests/test_database.py",
+          "lineno": 210,
+          "message": "AssertionError: Old transcript was not deleted\nassert 1 == 0\n +  where 1 = len([{'video_id': 'new_video', 'title': 'New Video', 'channel_name': 'Channel', 'publish_date': '2025-05-01', 'transcript': 'New content', 'summary': '', 'enhanced_transcript': '', 'rank': -1e-06}])"
+        },
+        "traceback": [
+          {
+            "path": "tests/test_database.py",
+            "lineno": 210,
+            "message": "in test_cleanup_old_transcripts"
+          }
+        ],
+        "longrepr": "tests/test_database.py:210: in test_cleanup_old_transcripts\n    assert len(results) == 0, \"Old transcript was not deleted\"\nE   AssertionError: Old transcript was not deleted\nE   assert 1 == 0\nE    +  where 1 = len([{'video_id': 'new_video', 'title': 'New Video', 'channel_name': 'Channel', 'publish_date': '2025-05-01', 'transcript': 'New content', 'summary': '', 'enhanced_transcript': '', 'rank': -1e-06}])"
+      },
+      "teardown": {
+        "duration": 0.0001751338131725788,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_extract_video_id",
+      "lineno": 23,
+      "outcome": "passed",
+      "keywords": [
+        "test_extract_video_id",
+        "TestRealYouTube",
+        "test_real_youtube.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 7.857196033000946e-05,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0002874862402677536,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 4.271091893315315e-05,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_fetch_real_transcript",
+      "lineno": 37,
+      "outcome": "passed",
+      "keywords": [
+        "test_fetch_real_transcript",
+        "slow",
+        "pytestmark",
+        "TestRealYouTube",
+        "test_real_youtube.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 5.3351279348134995e-05,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.9059802670963109,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.0001241220161318779,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_get_channel_videos_real",
+      "lineno": 54,
+      "outcome": "failed",
+      "keywords": [
+        "test_get_channel_videos_real",
+        "slow",
+        "pytestmark",
+        "TestRealYouTube",
+        "test_real_youtube.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.00011837296187877655,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0008026477880775928,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/graham/workspace/experiments/youtube_transcripts/tests/test_real_youtube.py",
+          "lineno": 65,
+          "message": "Failed: Failed to fetch any videos from channel - pytube likely broken"
+        },
+        "traceback": [
+          {
+            "path": "tests/test_real_youtube.py",
+            "lineno": 65,
+            "message": "in test_get_channel_videos_real"
+          }
+        ],
+        "longrepr": "tests/test_real_youtube.py:65: in test_get_channel_videos_real\n    pytest.fail(\"Failed to fetch any videos from channel - pytube likely broken\")\nE   Failed: Failed to fetch any videos from channel - pytube likely broken"
+      },
+      "teardown": {
+        "duration": 9.512202814221382e-05,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_real_youtube.py::TestRealYouTube::test_process_channels_with_empty_list",
+      "lineno": 78,
+      "outcome": "passed",
+      "keywords": [
+        "test_process_channels_with_empty_list",
+        "TestRealYouTube",
+        "test_real_youtube.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.00010765204206109047,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.00011076312512159348,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 8.029118180274963e-05,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization",
+      "lineno": 66,
+      "outcome": "failed",
+      "keywords": [
+        "test_basic_search_without_optimization",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.007900672033429146,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.0214745388366282,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py",
+          "lineno": 92,
+          "message": "AssertionError: VERL introduction video should be in results\nassert False"
+        },
+        "traceback": [
+          {
+            "path": "tests/test_unified_search.py",
+            "lineno": 92,
+            "message": "in test_basic_search_without_optimization"
+          }
+        ],
+        "longrepr": "tests/test_unified_search.py:92: in test_basic_search_without_optimization\n    assert verl_found, \"VERL introduction video should be in results\"\nE   AssertionError: VERL introduction video should be in results\nE   assert False"
+      },
+      "teardown": {
+        "duration": 0.00014249328523874283,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization",
+      "lineno": 93,
+      "outcome": "passed",
+      "keywords": [
+        "test_search_with_optimization",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.005907109938561916,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 2.805964098777622,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00019576400518417358,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search",
+      "lineno": 111,
+      "outcome": "passed",
+      "keywords": [
+        "test_channel_specific_search",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.006697285920381546,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.02012832136824727,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00012088334187865257,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly",
+      "lineno": 132,
+      "outcome": "passed",
+      "keywords": [
+        "test_query_optimizer_directly",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 5.67510724067688e-05,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 6.628690354060382,
+        "outcome": "passed"
+      },
+      "teardown": {
+        "duration": 0.00011213263496756554,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling",
+      "lineno": 154,
+      "outcome": "failed",
+      "keywords": [
+        "test_empty_query_handling",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.008065896108746529,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.019694650080055,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/graham/workspace/experiments/youtube_transcripts/src/youtube_transcripts/core/database.py",
+          "lineno": 64,
+          "message": "sqlite3.OperationalError: fts5: syntax error near \"\""
+        },
+        "traceback": [
+          {
+            "path": "tests/test_unified_search.py",
+            "lineno": 163,
+            "message": "in test_empty_query_handling"
+          },
+          {
+            "path": "src/youtube_transcripts/unified_search_v2.py",
+            "lineno": 47,
+            "message": "in search"
+          },
+          {
+            "path": "src/youtube_transcripts/core/database.py",
+            "lineno": 64,
+            "message": "in search_transcripts"
+          }
+        ],
+        "longrepr": "tests/test_unified_search.py:163: in test_empty_query_handling\n    results = search.search(\"\", use_optimization=False)\nsrc/youtube_transcripts/unified_search_v2.py:47: in search\n    channel_results = search_transcripts(\nsrc/youtube_transcripts/core/database.py:64: in search_transcripts\n    cursor.execute(base_query, [match_query, limit])\nE   sqlite3.OperationalError: fts5: syntax error near \"\""
+      },
+      "teardown": {
+        "duration": 0.00020676525309681892,
+        "outcome": "passed"
+      }
+    },
+    {
+      "nodeid": "tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search",
+      "lineno": 168,
+      "outcome": "failed",
+      "keywords": [
+        "test_multi_word_search",
+        "TestUnifiedSearch",
+        "test_unified_search.py",
+        "tests",
+        "youtube_transcripts",
+        ""
+      ],
+      "setup": {
+        "duration": 0.005869107786566019,
+        "outcome": "passed"
+      },
+      "call": {
+        "duration": 0.020935856737196445,
+        "outcome": "failed",
+        "crash": {
+          "path": "/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py",
+          "lineno": 184,
+          "message": "AssertionError: Should find videos related to reinforcement learning\nassert ('verl_intro_001' in ['verl_001', 'verl_001', 'verl_001', 'verl_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001'] or 'rl_basics_002' in ['verl_001', 'verl_001', 'verl_001', 'verl_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001'])"
+        },
+        "traceback": [
+          {
+            "path": "tests/test_unified_search.py",
+            "lineno": 184,
+            "message": "in test_multi_word_search"
+          }
+        ],
+        "longrepr": "tests/test_unified_search.py:184: in test_multi_word_search\n    assert 'verl_intro_001' in video_ids or 'rl_basics_002' in video_ids, \\\nE   AssertionError: Should find videos related to reinforcement learning\nE   assert ('verl_intro_001' in ['verl_001', 'verl_001', 'verl_001', 'verl_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001'] or 'rl_basics_002' in ['verl_001', 'verl_001', 'verl_001', 'verl_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001', 'rl_basics_001'])"
+      },
+      "teardown": {
+        "duration": 0.000224284827709198,
+        "outcome": "passed"
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "message": "Exception in thread Thread-19\n\nTraceback (most recent call last):\n  File \"/home/graham/.venv/lib/python3.11/site-packages/aiosqlite/core.py\", line 107, in run\n    future.get_loop().call_soon_threadsafe(set_result, future, result)\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 807, in call_soon_threadsafe\n    self._check_closed()\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 520, in _check_closed\n    raise RuntimeError('Event loop is closed')\nRuntimeError: Event loop is closed\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/threading.py\", line 1045, in _bootstrap_inner\n    self.run()\n  File \"/home/graham/.venv/lib/python3.11/site-packages/aiosqlite/core.py\", line 110, in run\n    future.get_loop().call_soon_threadsafe(set_exception, future, e)\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 807, in call_soon_threadsafe\n    self._check_closed()\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 520, in _check_closed\n    raise RuntimeError('Event loop is closed')\nRuntimeError: Event loop is closed\n",
+      "category": "PytestUnhandledThreadExceptionWarning",
+      "when": "runtest",
+      "filename": "/home/graham/.venv/lib/python3.11/site-packages/_pytest/threadexception.py",
+      "lineno": 82
+    },
+    {
+      "message": "Exception in thread Thread-62\n\nTraceback (most recent call last):\n  File \"/home/graham/.venv/lib/python3.11/site-packages/aiosqlite/core.py\", line 105, in run\n    result = function()\n             ^^^^^^^^^^\nsqlite3.OperationalError: attempt to write a readonly database\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/threading.py\", line 1045, in _bootstrap_inner\n    self.run()\n  File \"/home/graham/.venv/lib/python3.11/site-packages/aiosqlite/core.py\", line 110, in run\n    future.get_loop().call_soon_threadsafe(set_exception, future, e)\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 807, in call_soon_threadsafe\n    self._check_closed()\n  File \"/home/graham/.local/share/uv/python/cpython-3.11.12-linux-x86_64-gnu/lib/python3.11/asyncio/base_events.py\", line 520, in _check_closed\n    raise RuntimeError('Event loop is closed')\nRuntimeError: Event loop is closed\n",
+      "category": "PytestUnhandledThreadExceptionWarning",
+      "when": "runtest",
+      "filename": "/home/graham/.venv/lib/python3.11/site-packages/_pytest/threadexception.py",
+      "lineno": 82
+    }
+  ]
+}
