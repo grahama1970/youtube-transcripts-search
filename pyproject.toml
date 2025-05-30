@@ -38,7 +38,7 @@ dependencies = [
     "whisper>=1.1.10",
 ]"
 
-[project.optional-dependencies]
+[project.optional-dependencies]"
 dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
@@ -70,7 +70,7 @@ path = "src/youtube_transcripts/__init__.py"
 [tool.hatch.build.targets.wheel]"
 packages = ["src/youtube_transcripts"]"
 
-[tool.hatch.build.targets.sdist]
+[tool.hatch.build.targets.sdist]"
 include = [
     "/src",
     "/tests",
@@ -86,10 +86,10 @@ target-version = "py310"
 select = ["E", "F", "I", "N", "W", "UP", "B", "C4", "SIM", "RUF"]"
 ignore = ["E501"]"
 
-[tool.ruff.lint.isort]
+[tool.ruff.lint.isort]"
 known-first-party = ["youtube_transcripts"]"
 
-[tool.pytest.ini_options]
+[tool.pytest.ini_options]"
 testpaths = ["tests"]"
 python_files = ["test_*.py", "*_test.py"]"
 addopts = "-v --tb=short"
