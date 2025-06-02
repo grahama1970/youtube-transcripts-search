@@ -1,6 +1,11 @@
-# YouTube Transcripts Analysis Tool
+# YouTube Transcripts Search & Analysis Tool
 
-**✅ PROJECT STATUS: FULLY FUNCTIONAL (94% Test Coverage)**
+[![GitHub](https://img.shields.io/github/license/grahama1970/youtube-transcripts-search)](https://github.com/grahama1970/youtube-transcripts-search/blob/master/LICENSE)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
+
+**Repository:** https://github.com/grahama1970/youtube-transcripts-search
+
+**✅ PROJECT STATUS: FULLY FUNCTIONAL with Dual Database Support**
 
 A powerful tool for searching, fetching, and analyzing YouTube video transcripts with advanced features including YouTube API integration, progressive search widening, and full-text search capabilities.
 
