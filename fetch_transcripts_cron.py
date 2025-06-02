@@ -1,57 +1,57 @@
-#!/usr/bin/env python3
-# fetch_transcripts_cron.py
-"""
-Cron script to fetch YouTube transcripts daily
-Add to crontab: 0 2 * * * /usr/bin/python3 /path/to/fetch_transcripts_cron.py
-"""
-
+# youtube_transcripts/fetch_transcripts_cron.py
+import sqlite3
+import os
+from youtube_transcript_api import YouTubeTranscriptApi, TranscriptsDisabled, NoTranscriptFound
+from pytube import Channel
+from datetime import datetime, timedelta
 import sys
-import logging
-from pathlib import Path
-from datetime import datetime
+import time
+from core.database import initialize_database, check_transcript_exists, store_transcript, cleanup_old_transcripts
+from core.transcript import get_channel_videos, get_transcript, enhance_transcript, parse_date_cutoff
 
-# Setup logging
-log_file = Path(__file__).parent / 'cron.log'
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(log_file),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
-
-# Add project to path
-sys.path.append(str(Path(__file__).parent))
-
-from youtube_transcripts.config import DEFAULT_CHANNEL, DEFAULT_CLEANUP_MONTHS
-from youtube_transcripts.core.database import initialize_database
-from youtube_transcripts.core.transcript import process_channels
+# Configuration
+DB_PATH = "youtube_transcripts.db"
+CHANNEL_URLS = [
+    "https://www.youtube.com/@TrelisResearch",
+]
+DATE_CUTOFF = "1 month"
 
 def main():
-    """Main cron job function"""
-    logging.info("Starting transcript fetch job")
+    """Fetch and store transcripts for cron execution."""
+    initialize_database()
+    date_cutoff = parse_date_cutoff(DATE_CUTOFF)
+    print(f"Fetching transcripts for videos newer than {date_cutoff.strftime('%Y-%m-%d')}")
     
-    try:
-        # Initialize database
-        initialize_database()
+    # Cleanup old transcripts
+    deleted = cleanup_old_transcripts(max_age_months=12)
+    print(f"Deleted {deleted} transcripts older than 12 months.")
+    
+    # Fetch transcripts, skipping summaries to reduce API costs
+    for channel_url in CHANNEL_URLS:
+        conn = sqlite3.connect(DB_PATH)
+        cursor = conn.cursor()
+        cursor.execute("SELECT COUNT(*) FROM video_metadata WHERE channel_name = ?", (Channel(channel_url).channel_name or "Unknown Channel",))
+        transcript_count = cursor.fetchone()[0]
+        conn.close()
         
-        # Process default channels with 6-month cutoff
-        channels = [DEFAULT_CHANNEL]
-        date_cutoff = "6 months"
+        if transcript_count > 0:
+            print(f"Found {transcript_count} existing transcripts for channel {channel_url}. Checking for new videos.")
         
-        logging.info(f"Processing channels: {channels}")
-        processed, deleted = process_channels(
-            channels, 
-            date_cutoff, 
-            DEFAULT_CLEANUP_MONTHS
-        )
-        
-        logging.info(f"Processed {processed} transcripts, deleted {deleted} old ones")
-        
-    except Exception as e:
-        logging.error(f"Error in cron job: {str(e)}")
-        sys.exit(1)
+        videos = get_channel_videos(channel_url, date_cutoff)
+        channel_name = Channel(channel_url).channel_name or "Unknown Channel"
+        for video_id, title, publish_date in videos:
+            if check_transcript_exists(video_id):
+                print(f"Skipping existing video: {title}")
+                continue
+            
+            transcript = get_transcript(video_id)
+            if transcript:
+                summary = "Summary skipped for cron run."
+                enhanced_transcript = enhance_transcript(transcript)
+                store_transcript(video_id, title, channel_name, publish_date, transcript, summary, enhanced_transcript)
+                print(f"Stored transcript for video: {title}")
+            else:
+                print(f"No transcript available for video: {title}")
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

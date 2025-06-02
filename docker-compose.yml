@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  # ArangoDB for YouTube transcript storage and search
+  arangodb:
+    image: arangodb/arangodb:latest
+    container_name: youtube_transcripts_arangodb
+    ports:
+      - "8529:8529"
+    environment:
+      - ARANGO_ROOT_PASSWORD=openSesame
+    volumes:
+      - arangodb_data:/var/lib/arangodb3
+      - arangodb_apps:/var/lib/arangodb3-apps
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8529/_api/version"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+
+  # Optional: Redis for caching
+  redis:
+    image: redis:alpine
+    container_name: youtube_transcripts_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  arangodb_data:
+    driver: local
+  arangodb_apps:
+    driver: local
+  redis_data:
+    driver: local

@@ -32,6 +32,17 @@ logs/*
 *.tsv
 *.jsonl
 
+# Test artifacts
+.pytest_cache/
+test_results/
+validation_results.txt
+*.db
+!tests/**/*.db
+
+# Backup files
+*.backup
+*.bak
+
 # Tensorboard
 runs/*
 logs/*

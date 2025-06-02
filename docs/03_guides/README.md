@@ -1,0 +1,9 @@
+# 03 Guides
+
+> User guides and tutorials
+
+## Contents
+
+- [3_LAYER_ARCHITECTURE](./guides/3_LAYER_ARCHITECTURE.md)
+- [DEEP_RETRIEVAL_INTEGRATION](./guides/DEEP_RETRIEVAL_INTEGRATION.md)
+- [TASK_LIST_TEMPLATE_GUIDE_V2](./guides/TASK_LIST_TEMPLATE_GUIDE_V2.md)

@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Comprehensive test suite that runs all integration tests and generates a final report.
+Comprehensive test suite runner for YouTube Transcripts project.
+Runs all tests and generates a summary report.
 """
 
 import sys
@@ -9,192 +10,178 @@ from pathlib import Path
 from datetime import datetime
 import json
 
-def run_test_file(test_file):
-    """Run a test file and capture results"""
+
+def run_pytest_on_directory(test_path, test_name):
+    """Run pytest on a directory or file"""
     print(f"\n{'='*60}")
-    print(f"Running {test_file.name}...")
+    print(f"Running {test_name}...")
     print('='*60)
     
     try:
         result = subprocess.run(
-            [sys.executable, str(test_file)],
+            [sys.executable, "-m", "pytest", str(test_path), "-v", "--tb=short"],
             capture_output=True,
             text=True,
-            cwd=test_file.parent.parent
+            cwd=Path(__file__).parent.parent
         )
         
-        # Extract success rate from output
-        success_rate = 0.0
+        # Parse pytest output for results
+        passed = failed = 0
         for line in result.stdout.split('\n'):
-            if 'Success Rate:' in line:
-                try:
-                    success_rate = float(line.split(':')[1].strip().rstrip('%'))
-                except:
-                    pass
+            if 'passed' in line and 'failed' in line:
+                # Parse summary line like "5 passed, 2 failed"
+                parts = line.split(',')
+                for part in parts:
+                    if 'passed' in part:
+                        passed = int(part.strip().split()[0])
+                    elif 'failed' in part:
+                        failed = int(part.strip().split()[0])
+        
+        total = passed + failed
+        success_rate = (passed / total * 100) if total > 0 else 0
         
         return {
-            'file': test_file.name,
+            'name': test_name,
+            'path': str(test_path),
             'success': result.returncode == 0,
+            'passed': passed,
+            'failed': failed,
+            'total': total,
             'success_rate': success_rate,
             'output': result.stdout,
             'error': result.stderr
         }
     except Exception as e:
         return {
-            'file': test_file.name,
+            'name': test_name,
+            'path': str(test_path),
             'success': False,
+            'passed': 0,
+            'failed': 0,
+            'total': 0,
             'success_rate': 0.0,
             'output': '',
             'error': str(e)
         }
 
 
-def generate_final_report(test_results):
-    """Generate comprehensive test report"""
+def generate_summary_report(test_results):
+    """Generate a summary test report"""
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    report_file = Path("docs/reports") / f"final_integration_test_report_{timestamp}.md"
-    report_file.parent.mkdir(parents=True, exist_ok=True)
     
-    # Calculate overall statistics
-    total_tests = len(test_results)
-    passed_tests = sum(1 for r in test_results if r['success'])
-    total_success_rate = sum(r['success_rate'] for r in test_results) / total_tests if total_tests > 0 else 0
+    # Calculate totals
+    total_passed = sum(r['passed'] for r in test_results)
+    total_failed = sum(r['failed'] for r in test_results)
+    total_tests = sum(r['total'] for r in test_results)
+    overall_success_rate = (total_passed / total_tests * 100) if total_tests > 0 else 0
     
-    report = f"""# Final Integration Test Report
+    report = f"""# YouTube Transcripts Test Summary Report
 
 **Generated**: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}  
-**Project**: YouTube Transcripts with ArangoDB Integration
+**Total Tests Run**: {total_tests}  
+**Overall Success Rate**: {overall_success_rate:.1f}%
 
-## Executive Summary
+## Test Results by Component
 
-This report verifies the implementation of all integration tasks:
-- ✅ Task 001: Entity Extraction from Transcripts
-- ✅ Task 002: Relationship Extraction Between Transcripts  
-- ✅ Task 003: Hybrid Search with ArangoDB Fallback
-- ✅ Task 006: CLI Commands for Enhanced Features
-
-## Overall Results
-
-- **Test Suites Run**: {total_tests}
-- **Test Suites Passed**: {passed_tests}
-- **Average Success Rate**: {total_success_rate:.1f}%
-- **Implementation Status**: {"✅ COMPLETE" if total_success_rate >= 70 else "❌ INCOMPLETE"}
-
-## Test Suite Results
-
-| Test Suite | Status | Success Rate | Key Findings |
-|------------|--------|--------------|--------------|
+| Component | Tests | Passed | Failed | Success Rate | Status |
+|-----------|-------|--------|---------|--------------|--------|
 """
     
     for result in test_results:
         status = "✅ PASS" if result['success'] else "❌ FAIL"
-        
-        # Extract key findings from output
-        findings = []
-        if 'entity' in result['file'].lower():
-            findings.append("Entity extraction working with regex patterns")
-            findings.append("Confidence scores properly assigned")
-        elif 'relationship' in result['file'].lower():
-            findings.append("Relationship types correctly identified")
-            findings.append("Temporal relationships detected")
-        elif 'hybrid' in result['file'].lower():
-            findings.append("Fallback to ArangoDB implemented")
-            findings.append("Search performance acceptable")
-        
-        key_findings = "; ".join(findings[:2]) if findings else "See detailed report"
-        
-        report += f"| {result['file']} | {status} | {result['success_rate']:.1f}% | {key_findings} |\n"
+        report += f"| {result['name']} | {result['total']} | {result['passed']} | {result['failed']} | {result['success_rate']:.1f}% | {status} |\n"
     
     report += f"""
 
-## Implementation Verification
+## Summary
 
-### 1. Entity Extraction (Task 001) ✅
-- **Function**: `GraphMemoryIntegration.extract_entities_from_transcript()`
-- **Status**: Implemented and tested
-- **Extracts**: People, Organizations, Technical Terms, Topics
-- **Features**: Confidence scoring, deduplication
+- **Total Test Cases**: {total_tests}
+- **Passed**: {total_passed} ({overall_success_rate:.1f}%)
+- **Failed**: {total_failed} ({100 - overall_success_rate:.1f}%)
+- **Overall Status**: {"✅ ALL TESTS PASSING" if total_failed == 0 else f"❌ {total_failed} TESTS FAILING"}
 
-### 2. Relationship Extraction (Task 002) ✅
-- **Function**: `GraphMemoryIntegration.extract_relationships_between_transcripts()`
-- **Status**: Implemented and tested
-- **Relationships**: SHARES_ENTITY, SAME_CHANNEL, PUBLISHED_NEAR, SIMILAR_TOPIC
-- **Features**: Temporal analysis, entity matching
+## Component Details
 
-### 3. Hybrid Search (Task 003) ✅
-- **Function**: `GraphMemoryIntegration.search_with_arango_hybrid()`
-- **Status**: Implemented with fallback mechanism
-- **Trigger**: When SQLite FTS5 returns no results
-- **Integration**: Uses ArangoDB semantic + keyword search
+### Core Functionality
+- Database operations: SQLite with FTS5
+- YouTube API integration: Fetching and searching
+- Transcript processing: Entity extraction, validation
 
-### 4. CLI Commands (Task 006) ✅
-- **Commands Added**:
-  - `extract-entities`: Extract entities from video transcript
-  - `find-relationships`: Find relationships between videos
-  - `graph-search`: Search using ArangoDB knowledge graph
-- **Location**: `src/youtube_transcripts/cli/app_enhanced.py`
+### Search Features  
+- Unified search: Local and YouTube API
+- Progressive search widening: Query expansion
+- Full-text search: BM25 ranking
 
-## Critical Verification
+### Advanced Features
+- Agent system: Async task processing
+- Scientific extractors: NLP-based metadata extraction
+- MCP integration: Model Context Protocol support
 
-All implemented functions have been tested with:
-- ✅ Real transcript data (non-mocked)
-- ✅ Actual ArangoDB connections when available
-- ✅ Proper error handling for unavailable services
-- ✅ Performance metrics captured
-- ✅ Test reports generated automatically
+## Quick Fix Guide
 
-## Recommendations
+If tests are failing:
+1. Check environment variables (YOUTUBE_API_KEY)
+2. Ensure virtual environment is activated
+3. Install all dependencies: `pip install -e ".[dev]"`
+4. Download SpaCy models if needed: `python -m spacy download en_core_web_sm`
 
-1. **Entity Extraction**: Consider using spaCy or similar NLP library for better accuracy
-2. **ArangoDB Integration**: Ensure ArangoDB service is running for full functionality
-3. **Performance**: Current implementation meets requirements but could be optimized
-4. **Documentation**: All functions are documented with docstrings
+## Next Steps
 
-## Conclusion
-
-The integration has been successfully implemented with an average success rate of {total_success_rate:.1f}%.
-All core functionality is working as specified in the task list.
+{"🎉 All systems operational! Ready for deployment." if total_failed == 0 else "⚠️ Fix failing tests before deployment."}
 """
     
-    # Write report
+    # Print to console
+    print(report)
+    
+    # Also save to file
+    report_dir = Path("docs/reports")
+    report_dir.mkdir(parents=True, exist_ok=True)
+    report_file = report_dir / f"test_summary_{timestamp}.md"
+    
     with open(report_file, "w") as f:
         f.write(report)
     
-    print(f"\n📊 Final report saved to: {report_file}")
-    return report_file
+    print(f"\n📊 Report saved to: {report_file}")
+    
+    return overall_success_rate >= 95  # Require 95% pass rate
 
 
 def main():
-    """Run all integration tests"""
-    print("🚀 Running Comprehensive Integration Test Suite")
+    """Run all tests in organized structure"""
+    print("🚀 Running YouTube Transcripts Test Suite")
     print("=" * 80)
     
-    # Find all test files
-    test_dir = Path(__file__).parent
-    test_files = [
-        test_dir / "test_entity_extraction.py",
-        test_dir / "test_relationship_extraction.py",
-        test_dir / "test_hybrid_search.py"
+    test_root = Path(__file__).parent
+    
+    # Define test groups to run
+    test_groups = [
+        (test_root / "core", "Core Functionality"),
+        (test_root / "agents", "Agent System"),
+        (test_root / "test_unified_search.py", "Unified Search"),
+        (test_root / "test_search_widening.py", "Search Widening"),
+        (test_root / "core/utils", "Scientific Extractors"),
     ]
     
-    # Run each test
+    # Run each test group
     test_results = []
-    for test_file in test_files:
-        if test_file.exists():
-            result = run_test_file(test_file)
+    for test_path, test_name in test_groups:
+        if test_path.exists():
+            result = run_pytest_on_directory(test_path, test_name)
             test_results.append(result)
+            
+            # Show quick summary
+            if result['success']:
+                print(f"✅ {test_name}: {result['passed']}/{result['total']} passed")
+            else:
+                print(f"❌ {test_name}: {result['failed']} failed")
     
-    # Generate final report
+    # Generate summary report
     print("\n" + "=" * 80)
-    print("Generating Final Report...")
-    report_file = generate_final_report(test_results)
+    print("Generating Summary Report...")
     
-    # Summary
-    total_success_rate = sum(r['success_rate'] for r in test_results) / len(test_results)
-    print(f"\n✨ Overall Success Rate: {total_success_rate:.1f}%")
-    print(f"✨ Implementation Status: {'COMPLETE' if total_success_rate >= 70 else 'INCOMPLETE'}")
+    success = generate_summary_report(test_results)
     
-    return total_success_rate >= 70
+    return success
 
 
 if __name__ == "__main__":

@@ -1,80 +1,37 @@
-[2025-05-27 17:55:01] Creating log file directory
-[2025-05-27 17:55:01] Starting setup in /home/graham/workspace/experiments/youtube_transcripts...
-[2025-05-27 17:55:01] Creating base directory structure
-[2025-05-27 17:55:01] BASE_DIR: /home/graham/workspace/experiments/youtube_transcripts
-[2025-05-27 17:55:01] CONFIG_PY length: 388
-[2025-05-27 17:55:01] Creating config.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/config.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/config.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/config.py
-[2025-05-27 17:55:01] Creating database.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
-[2025-05-27 17:55:01] Creating transcript.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/transcript.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/transcript.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/core/transcript.py
-[2025-05-27 17:55:01] Creating validators.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/validators.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/validators.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/core/validators.py
-[2025-05-27 17:55:01] Creating schemas.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/schemas.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/schemas.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/schemas.py
-[2025-05-27 17:55:01] Creating formatters.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/formatters.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/formatters.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/formatters.py
-[2025-05-27 17:55:01] Creating schema.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/schema.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/schema.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/schema.py
-[2025-05-27 17:55:01] Creating wrapper.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/wrapper.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/wrapper.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/wrapper.py
-[2025-05-27 17:55:01] Creating app.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/cli
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
-[2025-05-27 17:55:01] Creating fetch_transcripts_cron.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/fetch_transcripts_cron.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/fetch_transcripts_cron.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/fetch_transcripts_cron.py
-[2025-05-27 17:55:01] Creating __init__.py files
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/cli
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
-[2025-05-27 17:55:01] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
-[2025-05-27 17:55:01] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
-[2025-05-27 17:55:01] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
-[2025-05-27 17:55:01] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
-[2025-05-27 17:55:01] Verifying file creation...
-[2025-05-27 17:55:01] All files created successfully!
-[2025-05-27 17:55:01] Setup complete. Check /home/graham/workspace/experiments/youtube_transcripts/setup.log for details.
-[2025-05-27 17:55:01] Next steps:
-[2025-05-27 17:55:01] 1. Install dependencies: pip install youtube-transcript-api pytube google-generativeai typer rich pydantic
-[2025-05-27 17:55:01] 2. Set GEMINI_API_KEY: export GEMINI_API_KEY='your-api-key'
-[2025-05-27 17:55:01] 3. Run CLI: python -m youtube_transcripts.cli.app fetch
-[2025-05-27 17:55:01] 4. For MCP: python -m youtube_transcripts.mcp.wrapper
+[2025-05-31 00:59:21] Creating log file directory
+[2025-05-31 00:59:21] Starting setup in /home/graham/workspace/experiments/youtube_transcripts...
+[2025-05-31 00:59:21] Creating base directory structure
+[2025-05-31 00:59:21] BASE_DIR: /home/graham/workspace/experiments/youtube_transcripts
+[2025-05-31 00:59:21] CONFIG_PY length: 388
+[2025-05-31 00:59:21] Creating config.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/config.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/config.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/config.py
+[2025-05-31 00:59:21] Creating database.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/core/database.py
+[2025-05-31 00:59:21] Creating app.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/cli
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/cli/app.py
+[2025-05-31 00:59:21] Creating __init__.py files
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/__init__.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/core
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/core/__init__.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/cli
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/cli/__init__.py
+[2025-05-31 00:59:21] Creating directory: /home/graham/workspace/experiments/youtube_transcripts/mcp
+[2025-05-31 00:59:21] Writing to: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
+[2025-05-31 00:59:21] Setting permissions for: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
+[2025-05-31 00:59:21] Created: /home/graham/workspace/experiments/youtube_transcripts/mcp/__init__.py
