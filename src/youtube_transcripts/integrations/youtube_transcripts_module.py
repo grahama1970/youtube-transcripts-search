@@ -1,8 +1,24 @@
-"""Youtube Transcripts Module for claude-module-communicator integration"""
+"""
+Module: youtube_transcripts_module.py
+Description: Youtube Transcripts Module for claude-module-communicator integration
+
+External Dependencies:
+- claude_coms: https://github.com/grahama1970/claude-module-communicator
+- loguru: https://loguru.readthedocs.io/
+
+Sample Input:
+>>> module = YoutubeTranscriptsModule()
+>>> result = await module.search("machine learning tutorial")
+
+Expected Output:
+>>> {"videos": [...], "total": 10, "query": "machine learning tutorial"}
+
+Example Usage:
+>>> from youtube_transcripts.integrations.youtube_transcripts_module import YoutubeTranscriptsModule
+>>> module = YoutubeTranscriptsModule()
+"""
 import asyncio
 from typing import Any
-Module: youtube_transcripts_module.py
-Description: Implementation of youtube transcripts module functionality
 
 from loguru import logger
 

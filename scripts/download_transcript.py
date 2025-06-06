@@ -70,23 +70,33 @@ def extract_video_id(video_url_or_id: str) -> str:
     - https://www.youtube.com/watch?v=VIDEO_ID&t=123s
     - https://youtu.be/VIDEO_ID
     - https://youtube.com/embed/VIDEO_ID
+    - https://www.youtube-nocookie.com/embed/VIDEO_ID
     - VIDEO_ID (raw ID)
     """
-    # If it doesn't contain youtube.com or youtu.be, assume it's already an ID
-    if "youtube.com" not in video_url_or_id and "youtu.be" not in video_url_or_id:
+    # Handle empty input
+    if not video_url_or_id:
+        return video_url_or_id
+    
+    # Strip URL fragments
+    url_without_fragment = video_url_or_id.split('#')[0]
+    
+    # If it doesn't contain youtube domains, assume it's already an ID
+    url_lower = url_without_fragment.lower()
+    if "youtube.com" not in url_lower and "youtu.be" not in url_lower and "youtube-nocookie.com" not in url_lower:
         logger.debug(f"Input appears to be a video ID: {video_url_or_id}")
         return video_url_or_id
     
-    # Patterns to match various YouTube URL formats
+    # Patterns to match various YouTube URL formats (case-insensitive)
     patterns = [
-        r'(?:youtube\.com\/watch\?v=)([^&\n]+)',  # Standard watch URL
-        r'(?:youtu\.be\/)([^?&\n]+)',             # Shortened URL
-        r'(?:youtube\.com\/embed\/)([^?&\n]+)',   # Embed URL
-        r'(?:youtube\.com\/v\/)([^?&\n]+)'        # Old embed format
+        r'(?:youtube\.com\/watch\?v=)([^&\n]+)',       # Standard watch URL
+        r'(?:youtu\.be\/)([^?&\n]+)',                  # Shortened URL
+        r'(?:youtube\.com\/embed\/)([^?&\n]+)',        # Embed URL
+        r'(?:youtube-nocookie\.com\/embed\/)([^?&\n]+)', # No-cookie embed
+        r'(?:youtube\.com\/v\/)([^?&\n]+)'             # Old embed format
     ]
     
     for pattern in patterns:
-        match = re.search(pattern, video_url_or_id)
+        match = re.search(pattern, url_without_fragment, re.IGNORECASE)
         if match:
             video_id = match.group(1)
             logger.debug(f"Extracted video ID: {video_id} from URL: {video_url_or_id}")
@@ -363,21 +373,45 @@ def get_video_comments(video_id: str, max_comments: int = 100) -> List[Tuple[str
 
 def sanitize_filename(filename: str) -> str:
     """
-    Sanitize filename by replacing spaces with underscores and removing invalid characters.
+    Sanitize filename by removing invalid characters and ensuring filesystem compatibility.
     """
-    # Replace spaces with underscores
-    filename = filename.replace(' ', '_')
+    # Handle empty input
+    if not filename or not filename.strip():
+        return "untitled"
     
-    # Remove or replace invalid filename characters
+    # Remove invalid filename characters (but keep spaces)
     invalid_chars = '<>:"/\\|?*'
     for char in invalid_chars:
-        filename = filename.replace(char, '')
+        filename = filename.replace(char, ' ')
     
-    # Remove any extra underscores
-    filename = re.sub(r'_+', '_', filename)
+    # Normalize whitespace (multiple spaces/tabs/newlines to single space)
+    filename = ' '.join(filename.split())
     
-    # Trim underscores from start and end
-    filename = filename.strip('_')
+    # Strip leading/trailing whitespace
+    filename = filename.strip()
+    
+    # Handle empty result after cleaning
+    if not filename:
+        return "untitled"
+    
+    # Remove leading/trailing dots (hidden files on Unix)
+    filename = filename.strip('.')
+    
+    # Prevent path traversal
+    filename = filename.replace('..', '')
+    
+    # Handle Windows reserved names
+    reserved_names = {
+        'CON', 'PRN', 'AUX', 'NUL', 'COM1', 'COM2', 'COM3', 'COM4',
+        'COM5', 'COM6', 'COM7', 'COM8', 'COM9', 'LPT1', 'LPT2', 'LPT3',
+        'LPT4', 'LPT5', 'LPT6', 'LPT7', 'LPT8', 'LPT9'
+    }
+    if filename.upper() in reserved_names:
+        filename = f"{filename}_file"
+    
+    # Truncate to 255 characters (common filesystem limit)
+    if len(filename) > 255:
+        filename = filename[:255]
     
     return filename
 

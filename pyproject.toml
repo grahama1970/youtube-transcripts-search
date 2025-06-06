@@ -111,6 +111,11 @@ markers = [
     "minimum_duration: marks tests that must meet a minimum duration threshold",
     "slow: marks tests as slow running",
     "unit: marks tests as unit tests",
+    "level_0: marks tests as Level 0 unit tests (no external dependencies)",
+    "level_1: marks tests as Level 1 component integration tests",
+    "level_2: marks tests as Level 2 module interaction tests",
+    "level_3: marks tests as Level 3 multi-module orchestration tests",
+    "level_4: marks tests as Level 4 UI integration tests",
 ]
 
 [tool.hatch.metadata]
