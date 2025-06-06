@@ -1,0 +1,1 @@
+"""Level 1 integration tests - component integration with real services."""
