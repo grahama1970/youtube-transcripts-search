@@ -138,7 +138,7 @@ class TestExtractionPipeline:
                 
             # Also test comment extraction (separate)
             from download_transcript import get_video_comments
-            comments = get_video_comments(video_id, max_results=5)
+            comments = get_video_comments(video_id, max_comments=5)
             
             comment_links = []
             for author, text, links in comments:

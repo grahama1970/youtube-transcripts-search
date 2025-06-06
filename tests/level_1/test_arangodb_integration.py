@@ -53,7 +53,7 @@ class TestArangoDBIntegration:
         # Verify connection by getting version
         version = sys_db.version()
         assert version is not None
-        assert 'server' in version or 'version' in str(version)
+        assert isinstance(version, str) and len(version) > 0
         
         # List databases (real operation)
         databases = sys_db.databases()

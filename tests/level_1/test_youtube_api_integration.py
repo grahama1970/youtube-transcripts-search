@@ -84,7 +84,7 @@ class TestYouTubeAPIIntegration:
         # Use a popular video likely to have comments
         video_id = 'dQw4w9WgXcQ'  # Rick Astley
         
-        comments = get_video_comments(video_id, max_results=10)
+        comments = get_video_comments(video_id, max_comments=10)
         
         # Should get some comments (popular video)
         assert isinstance(comments, list)
