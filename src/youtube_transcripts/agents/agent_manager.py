@@ -1,12 +1,32 @@
+"""
+Module: agent_manager.py
+Description: Implementation of agent manager functionality
+
+External Dependencies:
+- asyncio: [Documentation URL]
+- enum: [Documentation URL]
+- aiosqlite: [Documentation URL]
+- : [Documentation URL]
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 import asyncio
-import sqlite3
 import json
 import uuid
-from datetime import datetime, timedelta
-from typing import Dict, Any, Optional, List
+from datetime import datetime
 from enum import Enum
+from typing import Any
+
 import aiosqlite
-from pathlib import Path
+
 
 class TaskStatus(Enum):
     PENDING = "PENDING"
@@ -27,12 +47,12 @@ class AsyncAgentManager:
     def __init__(self, db_path: str = "agents.db", max_concurrent: int = 5):
         self.db_path = db_path
         self.semaphore = asyncio.Semaphore(max_concurrent)
-        self.running_tasks: Dict[str, asyncio.Task] = {}
-        
-    async def submit_task(self, agent_type: AgentType, config: Dict[str, Any]) -> str:
+        self.running_tasks: dict[str, asyncio.Task] = {}
+
+    async def submit_task(self, agent_type: AgentType, config: dict[str, Any]) -> str:
         """Submit a task for background execution"""
         task_id = str(uuid.uuid4())
-        
+
         async with aiosqlite.connect(self.db_path) as db:
             await db.execute(
                 """INSERT INTO agent_tasks (task_id, agent_type, config) 
@@ -40,14 +60,14 @@ class AsyncAgentManager:
                 (task_id, agent_type.value, json.dumps(config))
             )
             await db.commit()
-        
+
         # Create background task
         task = asyncio.create_task(self._execute_agent_task(task_id, agent_type, config))
         self.running_tasks[task_id] = task
-        
+
         return task_id
-    
-    async def get_status(self, task_id: str) -> Optional[Dict[str, Any]]:
+
+    async def get_status(self, task_id: str) -> dict[str, Any] | None:
         """Get current status of a task"""
         async with aiosqlite.connect(self.db_path) as db:
             cursor = await db.execute(
@@ -56,10 +76,10 @@ class AsyncAgentManager:
                 (task_id,)
             )
             row = await cursor.fetchone()
-            
+
         if not row:
             return None
-            
+
         return {
             "task_id": task_id,
             "status": row[0],
@@ -69,31 +89,31 @@ class AsyncAgentManager:
             "created_at": row[4],
             "completed_at": row[5]
         }
-    
-    async def wait_for_task(self, task_id: str, timeout: int = 300) -> Dict[str, Any]:
+
+    async def wait_for_task(self, task_id: str, timeout: int = 300) -> dict[str, Any]:
         """Wait for task completion with timeout"""
         start_time = datetime.now()
-        
+
         while (datetime.now() - start_time).seconds < timeout:
             status = await self.get_status(task_id)
-            
+
             if not status:
                 raise ValueError(f"Task {task_id} not found")
-            
+
             if status["status"] in ["COMPLETED", "FAILED", "TIMEOUT", "CANCELLED"]:
                 return status
-            
+
             await asyncio.sleep(1)
-        
+
         # Timeout reached
         await self.cancel_task(task_id)
         return await self.get_status(task_id)
-    
+
     async def cancel_task(self, task_id: str) -> bool:
         """Cancel a running task"""
         if task_id in self.running_tasks:
             self.running_tasks[task_id].cancel()
-            
+
         async with aiosqlite.connect(self.db_path) as db:
             await db.execute(
                 """UPDATE agent_tasks SET status = ?, completed_at = CURRENT_TIMESTAMP 
@@ -101,16 +121,16 @@ class AsyncAgentManager:
                 (TaskStatus.CANCELLED.value, task_id)
             )
             await db.commit()
-        
+
         return True
-    
-    async def _execute_agent_task(self, task_id: str, agent_type: AgentType, config: Dict[str, Any]):
+
+    async def _execute_agent_task(self, task_id: str, agent_type: AgentType, config: dict[str, Any]):
         """Execute agent task with semaphore control"""
         async with self.semaphore:
             try:
                 # Update status to running
                 await self._update_task_status(task_id, TaskStatus.RUNNING)
-                
+
                 # Route to appropriate agent
                 if agent_type == AgentType.TRANSCRIPT_FETCHER:
                     from .transcript_fetcher_agent import TranscriptFetcherAgent
@@ -130,12 +150,12 @@ class AsyncAgentManager:
                     result = await agent.execute(task_id, config)
                 else:
                     raise ValueError(f"Unknown agent type: {agent_type}")
-                
+
                 # Update with result
                 await self._update_task_status(
                     task_id, TaskStatus.COMPLETED, result=result
                 )
-                
+
             except asyncio.CancelledError:
                 await self._update_task_status(task_id, TaskStatus.CANCELLED)
             except Exception as e:
@@ -144,12 +164,12 @@ class AsyncAgentManager:
                 )
             finally:
                 self.running_tasks.pop(task_id, None)
-    
+
     async def _update_task_status(
-        self, 
-        task_id: str, 
-        status: TaskStatus, 
-        result: Any = None, 
+        self,
+        task_id: str,
+        status: TaskStatus,
+        result: Any = None,
         error: str = None,
         progress: float = None
     ):
@@ -157,26 +177,26 @@ class AsyncAgentManager:
         async with aiosqlite.connect(self.db_path) as db:
             updates = ["status = ?"]
             params = [status.value]
-            
+
             if status == TaskStatus.RUNNING:
                 updates.append("started_at = CURRENT_TIMESTAMP")
             elif status in [TaskStatus.COMPLETED, TaskStatus.FAILED, TaskStatus.CANCELLED]:
                 updates.append("completed_at = CURRENT_TIMESTAMP")
-            
+
             if result is not None:
                 updates.append("result = ?")
                 params.append(json.dumps(result))
-            
+
             if error is not None:
                 updates.append("error = ?")
                 params.append(error)
-            
+
             if progress is not None:
                 updates.append("progress = ?")
                 params.append(progress)
-            
+
             params.append(task_id)
-            
+
             await db.execute(
                 f"UPDATE agent_tasks SET {', '.join(updates)} WHERE task_id = ?",
                 params

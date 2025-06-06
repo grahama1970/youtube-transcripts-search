@@ -1,21 +1,38 @@
-# youtube_transcripts/mcp/formatters.py
-from typing import List, Dict, Any
-import json
-from datetime import datetime
+"""
+Module: formatters.py
+Description: Functions for formatters operations
 
-def format_search_results(results: List[Dict[str, Any]], query: str) -> Dict[str, Any]:
+External Dependencies:
+- None (uses only standard library)
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
+# youtube_transcripts/mcp/formatters.py
+from datetime import datetime
+from typing import Any
+
+
+def format_search_results(results: list[dict[str, Any]], query: str) -> dict[str, Any]:
     """Format search results for MCP response"""
     formatted_results = []
-    
+
     for result in results:
         # Create snippet from transcript
         transcript = result.get('transcript', '')
         snippet_length = 200
-        
+
         # Try to find query terms in transcript for better snippet
         query_lower = query.lower()
         transcript_lower = transcript.lower()
-        
+
         start_idx = transcript_lower.find(query_lower)
         if start_idx != -1:
             # Center snippet around query match
@@ -25,7 +42,7 @@ def format_search_results(results: List[Dict[str, Any]], query: str) -> Dict[str
         else:
             # Just take beginning of transcript
             snippet = transcript[:snippet_length] + '...' if len(transcript) > snippet_length else transcript
-        
+
         formatted_results.append({
             'video_id': result['video_id'],
             'title': result['title'],
@@ -34,25 +51,25 @@ def format_search_results(results: List[Dict[str, Any]], query: str) -> Dict[str
             'transcript_snippet': snippet,
             'relevance_score': abs(result.get('rank', 0))  # Convert negative rank to positive score
         })
-    
+
     return {
         'results': formatted_results,
         'total_results': len(formatted_results),
         'query': query
     }
 
-def format_fetch_response(processed_count: int, deleted_count: int, 
-                         channel_urls: List[str], success: bool = True, 
-                         error_message: str = '') -> Dict[str, Any]:
+def format_fetch_response(processed_count: int, deleted_count: int,
+                         channel_urls: list[str], success: bool = True,
+                         error_message: str = '') -> dict[str, Any]:
     """Format fetch operation response"""
     message = f"Successfully processed {processed_count} videos"
     if deleted_count > 0:
         message += f" and cleaned up {deleted_count} old transcripts"
-    
+
     if error_message:
         message = error_message
         success = False
-    
+
     return {
         'processed_count': processed_count,
         'deleted_count': deleted_count,
@@ -61,10 +78,10 @@ def format_fetch_response(processed_count: int, deleted_count: int,
         'message': message
     }
 
-def format_transcript_for_llm(results: List[Dict[str, Any]], max_videos: int = 5) -> str:
+def format_transcript_for_llm(results: list[dict[str, Any]], max_videos: int = 5) -> str:
     """Format transcripts for LLM context"""
     context_parts = []
-    
+
     for i, result in enumerate(results[:max_videos]):
         context_parts.append(f"""
 Video {i+1}: {result['title']}
@@ -74,11 +91,11 @@ Transcript:
 {result['transcript']}
 ---
 """)
-    
+
     return '\n'.join(context_parts)
 
-def format_query_response(answer: str, sources: List[Dict[str, Any]], 
-                         confidence: float = 1.0, model: str = 'gemini-pro') -> Dict[str, Any]:
+def format_query_response(answer: str, sources: list[dict[str, Any]],
+                         confidence: float = 1.0, model: str = 'gemini-pro') -> dict[str, Any]:
     """Format query response for MCP"""
     return {
         'answer': answer,
@@ -97,7 +114,7 @@ def format_query_response(answer: str, sources: List[Dict[str, Any]],
         'model_used': model
     }
 
-def format_error_response(error: Exception, operation: str) -> Dict[str, Any]:
+def format_error_response(error: Exception, operation: str) -> dict[str, Any]:
     """Format error response"""
     return {
         'success': False,

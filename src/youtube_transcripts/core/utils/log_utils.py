@@ -1,6 +1,23 @@
+"""
+Module: log_utils.py
+Description: Utility functions and helpers for log utils
+
+External Dependencies:
+- None (uses only standard library)
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 import logging
 import re
-from typing import List, Any, Dict, Optional
+from typing import Any
 
 # Configure logging
 logger = logging.getLogger(__name__)
@@ -75,7 +92,7 @@ def truncate_large_value(
         return value
 
 
-def log_safe_results(results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def log_safe_results(results: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """
     Create a log-safe version of the results list by truncating large fields
     within each dictionary.
@@ -113,7 +130,7 @@ def log_safe_results(results: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     return log_safe_output
 
 
-def log_api_request(service_name: str, request_data: Dict[str, Any], truncate: bool = True) -> None:
+def log_api_request(service_name: str, request_data: dict[str, Any], truncate: bool = True) -> None:
     """Log API request details.
 
     Args:
@@ -145,7 +162,7 @@ def log_api_response(service_name: str, response_data: Any, truncate: bool = Tru
 
     logger.debug(f"{service_name} API Response: {response_data_to_log}")
 
-def log_api_error(service_name: str, error: Exception, request_data: Optional[Dict[str, Any]] = None) -> None:
+def log_api_error(service_name: str, error: Exception, request_data: dict[str, Any] | None = None) -> None:
     """Log API error details.
 
     Args:
@@ -153,7 +170,7 @@ def log_api_error(service_name: str, error: Exception, request_data: Optional[Di
         error: The error that occurred
         request_data: Optional request data for context
     """
-    error_message = f"{service_name} API Error: {str(error)}"
+    error_message = f"{service_name} API Error: {error!s}"
 
     if request_data:
         truncated_data = truncate_large_value(request_data)
@@ -260,7 +277,7 @@ if __name__ == "__main__":
     try:
         result = log_safe_results(valid_input_empty)
         if result == []:
-            print(f"✅ Successfully processed empty list.")
+            print("✅ Successfully processed empty list.")
         else:
             print(f"❌ Processing empty list resulted in unexpected output: {result}")
     except Exception as e:

@@ -1,0 +1,11 @@
+Test Report for youtube-transcripts
+==================================================
+
+Total Tests: 6
+Passed: 5
+Failed: 1
+Success Rate: 83.3%
+
+Failed Tests:
+  - tests/test_reporter_verification.py::test_reporter_failure_example
+    Error: <ExceptionInfo AssertionError('Expected 5 but got 4\nassert 4 == 5') tblen=31>

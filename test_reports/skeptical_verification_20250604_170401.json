@@ -1,0 +1,531 @@
+{
+  "start_time": "2025-06-04T17:03:45.743978",
+  "test_suites": {
+    "tests/core/test_database.py": {
+      "test_path": "tests/core/test_database.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.44426989555358887,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.4179110527038574,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/core/test_youtube.py": {
+      "test_path": "tests/core/test_youtube.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.7562720775604248,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.697953462600708,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/core/utils/test_scientific_extractors.py": {
+      "test_path": "tests/core/utils/test_scientific_extractors.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.6507003307342529,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.7380890846252441,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/integration/test_arangodb_features.py": {
+      "test_path": "tests/integration/test_arangodb_features.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.821077823638916,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.6587948799133301,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/integration/test_arxiv_youtube_integration.py": {
+      "test_path": "tests/integration/test_arxiv_youtube_integration.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.44577574729919434,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.4576737880706787,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/integration/test_database_adapter.py": {
+      "test_path": "tests/integration/test_database_adapter.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.47951745986938477,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.4574100971221924,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/mcp/test_prompts.py": {
+      "test_path": "tests/mcp/test_prompts.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.6111345291137695,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.4927523136138916,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/agents/test_agents.py": {
+      "test_path": "tests/agents/test_agents.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.48911428451538086,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.44429731369018555,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/level_0/test_youtube_transcripts_standardized.py": {
+      "test_path": "tests/level_0/test_youtube_transcripts_standardized.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.4540557861328125,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.4548182487487793,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/scenarios/test_level0_scenarios.py": {
+      "test_path": "tests/scenarios/test_level0_scenarios.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.46285414695739746,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.5168209075927734,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/test_search_widening.py": {
+      "test_path": "tests/test_search_widening.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.5519251823425293,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.5007660388946533,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/test_unified_search.py": {
+      "test_path": "tests/test_unified_search.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.5384745597839355,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.5151000022888184,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    },
+    "tests/test_arangodb_connection.py": {
+      "test_path": "tests/test_arangodb_connection.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.6,
+          "passed": true,
+          "duration": 0.6200263500213623,
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.7,
+          "passed": true,
+          "duration": 0.6979081630706787,
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 3,
+          "confidence": 0.8,
+          "passed": true,
+          "duration": 0.6118698120117188,
+          "summary": {
+            "total": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.8,
+      "final_status": "UNCERTAIN",
+      "issues": [
+        "LOW_CONFIDENCE"
+      ]
+    },
+    "tests/test_integration_summary.py": {
+      "test_path": "tests/test_integration_summary.py",
+      "verification_loops": [
+        {
+          "loop": 1,
+          "confidence": 0.2,
+          "passed": false,
+          "duration": 0.5704989433288574,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        },
+        {
+          "loop": 2,
+          "confidence": 0.30000000000000004,
+          "passed": false,
+          "duration": 0.54783034324646,
+          "summary": {
+            "total": 0,
+            "passed": 0,
+            "failed": 0,
+            "skipped": 0,
+            "errors": 0
+          }
+        }
+      ],
+      "final_confidence": 0.30000000000000004,
+      "final_status": "FAIL",
+      "issues": [
+        "CONSISTENT_FAILURE"
+      ]
+    }
+  },
+  "summary": {
+    "total_suites": 14,
+    "passed_suites": 0,
+    "failed_suites": 13,
+    "uncertain_suites": 1,
+    "total_confidence": 4.699999999999999,
+    "average_confidence": 0.3357142857142857
+  },
+  "end_time": "2025-06-04T17:04:01.855027"
+}

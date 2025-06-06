@@ -1,0 +1,11 @@
+Test Report for youtube-transcripts
+==================================================
+
+Total Tests: 1
+Passed: 0
+Failed: 1
+Success Rate: 0.0%
+
+Failed Tests:
+  - tests/test_arangodb_connection.py::test_connection
+    Error: <ExceptionInfo Expected None, but test returned True. Did you mean to use `assert` instead of `return`? tblen=24>

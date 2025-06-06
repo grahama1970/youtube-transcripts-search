@@ -1,0 +1,21 @@
+{
+  "tests": [
+    {
+      "nodeid": "test_module_attributes",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_standardized_response_format",
+      "outcome": "passed"
+    },
+    {
+      "nodeid": "test_error_response_format",
+      "outcome": "passed"
+    }
+  ],
+  "summary": {
+    "total": 3,
+    "passed": 3,
+    "failed": 0
+  }
+}

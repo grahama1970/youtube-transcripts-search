@@ -1,5 +1,7 @@
 """
 Initializes LiteLLM Caching Configuration.
+Module: litellm_cache.py
+Description: Functions for litellm cache operations
 
 This module sets up LiteLLM's caching mechanism. It attempts to configure
 Redis as the primary cache backend. If Redis is unavailable or fails connection
@@ -31,18 +33,22 @@ Input/Output:
 # 4. Consult LESSONS_LEARNED.md about not breaking working code
 # ==============================================================================
 
-import litellm
 import os
-import redis
-from dotenv import load_dotenv  # Import dotenv for environment variable loading
+
 # from litellm.caching import Cache, Type  # Import Cache and Type
 import sys  # Import sys for exit codes
-from loguru import logger
+from typing import Any  # Import Any for type hint
+
+import litellm
+import redis
+from dotenv import load_dotenv  # Import dotenv for environment variable loading
 from litellm.caching.caching import (
     Cache as LiteLLMCache,
-    LiteLLMCacheType,
 )  # Import Cache and Type
-from typing import Any  # Import Any for type hint
+from litellm.caching.caching import (
+    LiteLLMCacheType,
+)
+from loguru import logger
 
 # Import the utility function from our utils
 try:
@@ -137,10 +143,9 @@ def initialize_litellm_cache() -> None:
         logger.debug("In-memory cache enabled")
 
 
-from typing import Tuple, Dict, Optional  # Add Optional
 
 
-def test_litellm_cache() -> Tuple[bool, Dict[str, Optional[bool]]]:
+def test_litellm_cache() -> tuple[bool, dict[str, bool | None]]:
     """
     Test the LiteLLM cache functionality with a sample completion call.
     Returns a tuple: (overall_success, cache_hit_details)
@@ -148,7 +153,7 @@ def test_litellm_cache() -> Tuple[bool, Dict[str, Optional[bool]]]:
     initialize_litellm_cache()
     test_success = False
     # Explicitly annotate the dictionary type
-    cache_details: Dict[str, Optional[bool]] = {"cache_hit1": None, "cache_hit2": None}
+    cache_details: dict[str, bool | None] = {"cache_hit1": None, "cache_hit2": None}
 
     try:
         # Test the cache with a simple completion call
@@ -219,7 +224,7 @@ if __name__ == "__main__":
             tests_failed_count += 1
             logger.error("❌ Test 'cache_hit_miss': FAILED")
             logger.error(
-                f"   Expected first call cache_hit=False/None, second call cache_hit=True."
+                "   Expected first call cache_hit=False/None, second call cache_hit=True."
             )
             logger.error(
                 f"   Got: cache_hit1={details.get('cache_hit1')}, cache_hit2={details.get('cache_hit2')}"
@@ -228,12 +233,12 @@ if __name__ == "__main__":
     except Exception as e:
         tests_failed_count += 1  # Count exception as failure
         logger.error(
-            f"❌ Test 'cache_hit_miss': FAILED due to exception during test execution."
+            "❌ Test 'cache_hit_miss': FAILED due to exception during test execution."
         )
         logger.error(f"   Exception: {e}", exc_info=True)
 
     # --- Report validation status ---
-    print(f"\n--- Test Summary ---")
+    print("\n--- Test Summary ---")
     print(f"Total Tests: {total_tests}")
     print(f"Passed: {tests_passed_count}")
     print(f"Failed: {tests_failed_count}")

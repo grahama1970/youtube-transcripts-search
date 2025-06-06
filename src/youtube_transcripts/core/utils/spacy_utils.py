@@ -1,9 +1,29 @@
-import spacy
-from loguru import logger
-from functools import lru_cache
+"""
+Module: spacy_utils.py
+Description: Utility functions and helpers for spacy utils
+
+External Dependencies:
+- spacy: [Documentation URL]
+- loguru: [Documentation URL]
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 import subprocess
 import sys
+from functools import lru_cache
 from pathlib import Path
+
+import spacy
+from loguru import logger
+
 
 @lru_cache(maxsize=1)
 def get_spacy_model(model_name: str = "en_core_web_sm", model_url: str = "https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.0/en_core_web_sm-3.7.0.tar.gz"):
@@ -35,7 +55,7 @@ def get_spacy_model(model_name: str = "en_core_web_sm", model_url: str = "https:
             # Try loading the model again after installation
             logger.info(f"Model '{model_name}' installed successfully.")
             return spacy.load(model_name)
-        
+
         except subprocess.CalledProcessError as e:
             logger.error(f"Failed to install '{model_name}': {e}")
             raise
@@ -50,13 +70,13 @@ def truncate_text_by_tokens(text: str, max_tokens: int = 50) -> str:
     """Truncate text to max_tokens while preserving meaning."""
     nlp = get_spacy_model()
     doc = nlp(text)
-    
+
     if len(doc) <= max_tokens:
         return text
-        
+
     # Get first and last n/2 tokens
     half_tokens = max_tokens // 2
     start_text = ''.join(token.text_with_ws for token in doc[:half_tokens])
     end_text = ''.join(token.text_with_ws for token in doc[-half_tokens:])
-    
+
     return f"{start_text.strip()}... {end_text.strip()}"

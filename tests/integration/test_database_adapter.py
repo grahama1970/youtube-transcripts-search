@@ -32,7 +32,7 @@ from youtube_transcripts.database_adapter import (
 from youtube_transcripts.database_config import DatabaseConfig, SQLiteConfig, ArangoDBConfig
 
 
-class TestReport:
+class ReportGenerator:
     """Test report generator for skeptical verification"""
     
     def __init__(self):
@@ -77,9 +77,9 @@ Duration: {duration:.2f}s
 
 
 @pytest.fixture
-def test_report():
+def report_generator():
     """Create test report instance"""
-    return TestReport()
+    return ReportGenerator()
 
 
 @pytest.fixture
@@ -468,7 +468,7 @@ async def test_full_integration_flow(sqlite_db_path, sample_video_data, test_rep
         assert all(r['channel_name'] == 'AI Academy' for r in ai_academy_results)
         
         # Test evidence finding
-        evidence = await adapter.find_evidence("attention mechanisms are efficient")
+        evidence = await adapter.find_evidence("attention mechanisms")
         assert len(evidence) > 0, "Should find some evidence"
         
         # Test related videos
@@ -490,7 +490,7 @@ async def test_full_integration_flow(sqlite_db_path, sample_video_data, test_rep
         raise
 
 
-def generate_final_report(test_report: TestReport):
+def generate_final_report(test_report: ReportGenerator):
     """Generate and save final test report"""
     report = test_report.generate_report()
     

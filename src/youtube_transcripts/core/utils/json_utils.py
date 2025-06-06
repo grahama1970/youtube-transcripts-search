@@ -1,12 +1,29 @@
+"""
+Module: json_utils.py
+Description: Utility functions and helpers for json utils
+
+External Dependencies:
+- json_repair: [Documentation URL]
+- loguru: [Documentation URL]
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 import json
 import os
-import json
-from pathlib import Path
 import re
-from typing import Union, Callable, Any
+from pathlib import Path
 
 from json_repair import repair_json
 from loguru import logger
+
 
 class PathEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -46,21 +63,21 @@ def load_json_file(file_path):
         logger.warning(f'File does not exist: {file_path}')
         return None
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path) as file:
             data = json.load(file)
         logger.info('JSON file loaded successfully')
         return data
     except json.JSONDecodeError as e:
         logger.warning(f'JSON decoding error: {e}, trying utf-8-sig encoding')
         try:
-            with open(file_path, 'r', encoding='utf-8-sig') as file:
+            with open(file_path, encoding='utf-8-sig') as file:
                 data = json.load(file)
             logger.info('JSON file loaded successfully with utf-8-sig encoding')
             return data
         except json.JSONDecodeError:
             logger.error('JSON decoding error persists with utf-8-sig encoding')
             raise
-    except IOError as e:
+    except OSError as e:
         logger.error(f'I/O error: {e}')
         raise
 
@@ -90,7 +107,7 @@ def save_json_to_file(data, file_path):
         raise
 
 
-def parse_json(content: str, logger=None) -> Union[dict, list, str]:
+def parse_json(content: str, logger=None) -> dict | list | str:
     """
     Attempt to parse a JSON string directly, and if that fails, try repairing it.
 
@@ -124,7 +141,7 @@ def parse_json(content: str, logger=None) -> Union[dict, list, str]:
     logger.debug(f'Returning original content as string: {content}')
     return content
 
-def clean_json_string(content: Union[str, dict, list], return_dict: bool=False) -> Union[str, dict, list]:
+def clean_json_string(content: str | dict | list, return_dict: bool=False) -> str | dict | list:
     """
     Clean and parse a JSON string, dict, or list, returning either a valid JSON string or a Python dict/list.
 

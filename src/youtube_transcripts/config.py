@@ -1,3 +1,20 @@
+"""
+Module: config.py
+Description: Configuration management and settings
+
+External Dependencies:
+- None (uses only standard library)
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 # youtube_transcripts/config.py
 import os
 from pathlib import Path

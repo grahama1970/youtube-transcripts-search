@@ -29,13 +29,22 @@ dependencies = [
     "google-generativeai>=0.3.0",
     "python-dotenv>=1.0.0",
     "ollama>=0.1.0",
-    "arangodb @ git+https://github.com/grahama1970/arangodb.git",
+    "python-arango>=8.1.4", # Use python-arango instead of arangodb
     "claude-test-reporter @ git+https://github.com/grahama1970/claude-test-reporter.git",
     "claude-module-communicator @ git+https://github.com/grahama1970/claude-module-communicator.git",
     "spacy>=3.8.7",
     "youtube-dl>=2021.12.17",
     "yt-dlp>=2025.5.22",
     "whisper>=1.1.10",
+    "loguru>=0.7.3",
+    "pydantic-settings>=2.9.1",
+    "aiohttp>=3.12.2",
+    "sentence-transformers>=4.1.0",
+    "tree-sitter>=0.24.0",
+    "tree-sitter-languages>=1.10.2",
+    "linkify-it-py>=2.0.3",
+    "validators>=0.35.0",
+    "tenacity>=8.0.0",
 ]
 
 [project.optional-dependencies]
@@ -43,6 +52,7 @@ dev = [
     "pytest>=8.0.0",
     "pytest-asyncio>=0.23.0",
     "pytest-mock>=3.12.0",
+    "pytest-json-report>=1.5.0",
     "ruff>=0.3.0",
     "ipython>=8.0.0",
 ]
@@ -92,7 +102,16 @@ known-first-party = ["youtube_transcripts"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py", "*_test.py"]
-addopts = "-v --tb=short"
+addopts = "-v --tb=short --strict-markers"
+pythonpath = ["src"]
+asyncio_mode = "auto"
+markers = [
+    "integration: marks tests as integration tests (may require external services)",
+    "honeypot: marks tests as honeypot tests designed to fail",
+    "minimum_duration: marks tests that must meet a minimum duration threshold",
+    "slow: marks tests as slow running",
+    "unit: marks tests as unit tests",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true

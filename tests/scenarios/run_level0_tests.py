@@ -69,7 +69,7 @@ def test_basic_search():
     with NamedTemporaryFile(suffix='.db', delete=False) as tmp:
         db_path = tmp.name
     
-    config = UnifiedSearchConfig(db_path=db_path)
+    config = UnifiedSearchConfig()
     client = UnifiedYouTubeSearch(config)
     
     # Initialize database
@@ -112,15 +112,25 @@ def test_metadata_extraction():
     extractor = MetadataExtractor()
     text = "Dr. Smith from MIT discusses machine learning"
     
-    metadata = extractor.extract_all(text)
+    from youtube_transcripts.core.models import Transcript
+    transcript_obj = Transcript(
+        video_id="test_video",
+        title="Test Video Title",
+        channel_name="Test Channel",
+        text=text,
+        publish_date="2024-01-01",
+        duration=300
+    )
+    metadata = extractor.extract_metadata(transcript_obj)
     
-    # Should extract entities
-    if "entities" not in metadata:
+    # Should extract people and institutions
+    if "people" not in metadata or "institutions" not in metadata:
         return False
     
-    # Should find person and organization
-    labels = {e["label"] for e in metadata["entities"]}
-    return "PERSON" in labels and "ORG" in labels
+    # Should find the person and organization
+    people_found = any("Smith" in p for p in metadata["people"])
+    institution_found = "MIT" in metadata["institutions"]
+    return people_found and institution_found
 
 
 def test_search_widening():
@@ -128,7 +138,7 @@ def test_search_widening():
     widener = SearchWidener()
     
     # Test synonym expansion
-    result = widener.widen_search("ML", level=1)
+    result = widener.search_with_widening("ML", max_widening_level=1)
     
     # Should widen the query
     return (
@@ -143,7 +153,7 @@ def test_empty_search():
     with NamedTemporaryFile(suffix='.db', delete=False) as tmp:
         db_path = tmp.name
     
-    config = UnifiedSearchConfig(db_path=db_path)
+    config = UnifiedSearchConfig()
     client = UnifiedYouTubeSearch(config)
     database.initialize_database(db_path)
     

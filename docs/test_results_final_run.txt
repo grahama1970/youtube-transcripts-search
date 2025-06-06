@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0 -- /home/graham/workspace/experiments/youtube_transcripts/.venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.8.0-57-generic-x86_64-with-glibc2.39', 'Packages': {'pytest': '8.3.5', 'pluggy': '1.6.0'}, 'Plugins': {'env': '1.1.5', 'metadata': '3.1.1', 'cov': '6.1.1', 'allure-pytest': '2.14.2', 'json-report': '1.5.0', 'asyncio': '1.0.0', 'anyio': '4.9.0'}}
+rootdir: /home/graham/workspace/experiments/youtube_transcripts
+configfile: pytest.ini
+plugins: env-1.1.5, metadata-3.1.1, cov-6.1.1, allure-pytest-2.14.2, json-report-1.5.0, asyncio-1.0.0, anyio-4.9.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 122 items
+
+tests/agents/test_agents.py::TestAgentSystem::test_agent_manager_task_submission PASSED [  0%]
+tests/agents/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution FAILED [  1%]
+
+=================================== FAILURES ===================================
+____________ TestAgentSystem.test_search_optimizer_agent_execution _____________
+tests/agents/test_agents.py:86: in test_search_optimizer_agent_execution
+    assert "Volcano Engine" in verl_opt["optimized"]
+E   AssertionError: assert 'Volcano Engine' in 'VERL youtube tutorial'
+=============================== warnings summary ===============================
+tests/integration/test_database_adapter.py:35
+  /home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_database_adapter.py:35: PytestCollectionWarning: cannot collect test class 'TestReportGenerator' because it has a __init__ constructor (from: tests/integration/test_database_adapter.py)
+    class TestReportGenerator:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: test_reports/youtube_transcripts_final_run.json
+=========================== short test summary info ============================
+FAILED tests/agents/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution - AssertionError: assert 'Volcano Engine' in 'VERL youtube tutorial'
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+=================== 1 failed, 1 passed, 1 warning in 15.96s ====================

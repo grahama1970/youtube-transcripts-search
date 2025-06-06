@@ -1,3 +1,20 @@
+"""
+Module: schema.py
+Description: Module for schema functionality
+
+External Dependencies:
+- None (uses only standard library)
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
 # youtube_transcripts/mcp/schema.py
 schema = {
     "name": "youtube-transcripts",

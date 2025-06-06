@@ -1,0 +1,218 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0 -- /home/graham/workspace/experiments/youtube_transcripts/.venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.8.0-57-generic-x86_64-with-glibc2.39', 'Packages': {'pytest': '8.3.5', 'pluggy': '1.6.0'}, 'Plugins': {'env': '1.1.5', 'metadata': '3.1.1', 'cov': '6.1.1', 'allure-pytest': '2.14.2', 'json-report': '1.5.0', 'asyncio': '1.0.0', 'anyio': '4.9.0'}}
+rootdir: /home/graham/workspace/experiments/youtube_transcripts
+configfile: pytest.ini
+plugins: env-1.1.5, metadata-3.1.1, cov-6.1.1, allure-pytest-2.14.2, json-report-1.5.0, asyncio-1.0.0, anyio-4.9.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 82 items / 7 errors
+
+==================================== ERRORS ====================================
+_________________ ERROR collecting tests/agents/test_agents.py _________________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/agents/test_agents.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/agents/test_agents.py:16: in <module>
+    from youtube_transcripts.agents.search_optimizer_agent import SearchOptimizerAgent
+src/youtube_transcripts/agents/search_optimizer_agent.py:3: in <module>
+    from youtube_transcripts.unified_search_enhanced import EnhancedDeepRetrievalOptimizer
+E   ModuleNotFoundError: No module named 'youtube_transcripts.unified_search_enhanced'
+_________ ERROR collecting tests/archive/test_integration_complete.py __________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/archive/test_integration_complete.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/archive/test_integration_complete.py:20: in <module>
+    from arangodb.core.utils.test_reporter import TestReporter
+E   ModuleNotFoundError: No module named 'arangodb'
+_______ ERROR collecting tests/core/utils/test_scientific_extractors.py ________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/core/utils/test_scientific_extractors.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/core/utils/test_scientific_extractors.py:14: in <module>
+    from youtube_transcripts.core.utils.spacy_scientific import ScientificPipeline
+src/youtube_transcripts/core/utils/__init__.py:3: in <module>
+    from .tree_sitter_utils import extract_code_metadata
+src/youtube_transcripts/core/utils/tree_sitter_utils.py:29: in <module>
+    from .tree_sitter_extractors import (
+src/youtube_transcripts/core/utils/tree_sitter_extractors.py:20: in <module>
+    from tree_sitter import Node
+E   ModuleNotFoundError: No module named 'tree_sitter'
+------------------------------- Captured stderr --------------------------------
+2025-06-05 12:35:13.096 | WARNING  | youtube_transcripts.core.utils.embedding_utils:<module>:16 - Transformers library not available, will use fallback embedding method
+2025-06-05 12:35:13.097 | WARNING  | youtube_transcripts.core.utils.embedding_utils:<module>:22 - Failed to import config, using default embedding settings
+_________ ERROR collecting tests/integration/test_arangodb_features.py _________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_arangodb_features.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/integration/test_arangodb_features.py:39: in <module>
+    from youtube_transcripts.research_analyzer import ResearchAnalyzer
+src/youtube_transcripts/research_analyzer.py:35: in <module>
+    from sentence_transformers import SentenceTransformer
+E   ModuleNotFoundError: No module named 'sentence_transformers'
+------------------------------- Captured stdout --------------------------------
+Warning: Granger ArangoDB utilities not available
+_____ ERROR collecting tests/integration/test_arxiv_youtube_integration.py _____
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_arxiv_youtube_integration.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/integration/test_arxiv_youtube_integration.py:23: in <module>
+    from youtube_transcripts.metadata_extractor import MetadataExtractor
+src/youtube_transcripts/metadata_extractor.py:32: in <module>
+    from src.youtube_transcripts.core.utils.embedding_wrapper import EmbeddingUtils
+src/youtube_transcripts/core/utils/__init__.py:3: in <module>
+    from .tree_sitter_utils import extract_code_metadata
+src/youtube_transcripts/core/utils/tree_sitter_utils.py:29: in <module>
+    from .tree_sitter_extractors import (
+src/youtube_transcripts/core/utils/tree_sitter_extractors.py:20: in <module>
+    from tree_sitter import Node
+E   ModuleNotFoundError: No module named 'tree_sitter'
+------------------------------- Captured stderr --------------------------------
+2025-06-05 12:35:14.432 | WARNING  | src.youtube_transcripts.core.utils.embedding_utils:<module>:16 - Transformers library not available, will use fallback embedding method
+2025-06-05 12:35:14.432 | WARNING  | src.youtube_transcripts.core.utils.embedding_utils:<module>:22 - Failed to import config, using default embedding settings
+__________ ERROR collecting tests/scenarios/test_level0_scenarios.py ___________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/scenarios/test_level0_scenarios.py:20: in <module>
+    from youtube_transcripts.core.database import Database
+E   ImportError: cannot import name 'Database' from 'youtube_transcripts.core.database' (/home/graham/workspace/experiments/youtube_transcripts/src/youtube_transcripts/core/database.py)
+______________ ERROR collecting tests/test_integration_summary.py ______________
+ImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/test_integration_summary.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/test_integration_summary.py:16: in <module>
+    from youtube_transcripts.research_analyzer import ResearchAnalyzer
+src/youtube_transcripts/research_analyzer.py:35: in <module>
+    from sentence_transformers import SentenceTransformer
+E   ModuleNotFoundError: No module named 'sentence_transformers'
+=============================== warnings summary ===============================
+tests/integration/test_database_adapter.py:35
+  /home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_database_adapter.py:35: PytestCollectionWarning: cannot collect test class 'TestReport' because it has a __init__ constructor (from: tests/integration/test_database_adapter.py)
+    class TestReport:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: test_reports/youtube_transcripts_full_test_after_fixes.json
+=========================== short test summary info ============================
+ERROR tests/agents/test_agents.py
+ERROR tests/archive/test_integration_complete.py
+ERROR tests/core/utils/test_scientific_extractors.py
+ERROR tests/integration/test_arangodb_features.py
+ERROR tests/integration/test_arxiv_youtube_integration.py
+ERROR tests/scenarios/test_level0_scenarios.py
+ERROR tests/test_integration_summary.py
+!!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!
+========================= 1 warning, 7 errors in 3.26s =========================

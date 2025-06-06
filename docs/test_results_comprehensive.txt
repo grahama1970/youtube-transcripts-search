@@ -1,0 +1,397 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0 -- /home/graham/workspace/experiments/youtube_transcripts/.venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.8.0-57-generic-x86_64-with-glibc2.39', 'Packages': {'pytest': '8.3.5', 'pluggy': '1.6.0'}, 'Plugins': {'env': '1.1.5', 'metadata': '3.1.1', 'cov': '6.1.1', 'allure-pytest': '2.14.2', 'json-report': '1.5.0', 'asyncio': '1.0.0', 'anyio': '4.9.0'}}
+rootdir: /home/graham/workspace/experiments/youtube_transcripts
+configfile: pytest.ini
+plugins: env-1.1.5, metadata-3.1.1, cov-6.1.1, allure-pytest-2.14.2, json-report-1.5.0, asyncio-1.0.0, anyio-4.9.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 122 items
+
+tests/agents/test_agents.py::TestAgentSystem::test_agent_manager_task_submission PASSED [  0%]
+tests/agents/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution PASSED [  1%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_progress_tracking PASSED [  2%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_message_passing PASSED [  3%]
+tests/agents/test_agents.py::TestAgentSystem::test_concurrent_agent_execution FAILED [  4%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_error_handling PASSED [  4%]
+tests/agents/test_agents.py::TestAgentSystem::test_task_cancellation FAILED [  5%]
+tests/core/test_database.py::TestDatabaseOperations::test_initialize_database_creates_tables PASSED [  6%]
+tests/core/test_database.py::TestDatabaseOperations::test_add_transcript_with_real_data PASSED [  7%]
+tests/core/test_database.py::TestDatabaseOperations::test_search_transcripts_with_special_characters PASSED [  8%]
+tests/core/test_database.py::TestDatabaseOperations::test_search_ranking_with_real_data FAILED [  9%]
+tests/core/test_database.py::TestDatabaseOperations::test_channel_filtering PASSED [  9%]
+tests/core/test_database.py::TestDatabaseOperations::test_cleanup_old_transcripts PASSED [ 10%]
+tests/core/test_youtube.py::TestRealYouTube::test_extract_video_id PASSED [ 11%]
+tests/core/test_youtube.py::TestRealYouTube::test_fetch_real_transcript SKIPPED [ 12%]
+tests/core/test_youtube.py::TestRealYouTube::test_get_channel_videos_real PASSED [ 13%]
+tests/core/test_youtube.py::TestRealYouTube::test_process_channels_with_empty_list PASSED [ 13%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_pipeline_initialization PASSED [ 14%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_citation_detection PASSED [ 15%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_institution_recognition PASSED [ 16%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_technical_term_extraction PASSED [ 17%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_speaker_extraction_in_pipeline PASSED [ 18%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_arxiv_detection PASSED [ 18%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_doi_detection PASSED [ 19%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_author_year_detection FAILED [ 20%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_citation_formatting PASSED [ 21%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_introduction_extraction PASSED [ 22%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_labeled_speaker_extraction FAILED [ 22%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_speaker_deduplication PASSED [ 23%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_speaker_formatting PASSED [ 24%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_content_type_classification PASSED [ 25%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_academic_level_classification PASSED [ 26%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_topic_extraction PASSED [ 27%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_quality_indicators FAILED [ 27%]
+tests/core/utils/test_scientific_extractors.py::TestMetadataExtractor::test_full_extraction PASSED [ 28%]
+tests/core/utils/test_scientific_extractors.py::TestMetadataExtractor::test_batch_extraction PASSED [ 29%]
+tests/core/utils/test_scientific_extractors.py::TestIntegration::test_end_to_end_extraction FAILED [ 30%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_store_and_retrieve_with_embeddings SKIPPED [ 31%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_hybrid_search SKIPPED [ 31%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_citation_network SKIPPED [ 32%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_speaker_relationships SKIPPED [ 33%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_entity_linking SKIPPED [ 34%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_find_related_videos SKIPPED [ 35%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_research_analyzer_integration SKIPPED [ 36%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_citation_validation_pipeline FAILED [ 36%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_enhancement_pipeline FAILED [ 37%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_cross_reference_search FAILED [ 38%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_evidence_based_validation PASSED [ 39%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_unified_metadata_extraction FAILED [ 40%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_discovery_workflow FAILED [ 40%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_initialization ERROR [ 41%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_store_and_retrieve ERROR [ 42%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_search ERROR [ 43%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_evidence_finding ERROR [ 44%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_auto_detection ERROR [ 45%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_forced_backends ERROR [ 45%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_adapter_interface ERROR [ 46%]
+tests/integration/test_database_adapter.py::TestDatabaseConfig::test_config_from_env ERROR [ 47%]
+tests/integration/test_database_adapter.py::TestDatabaseConfig::test_backend_config_generation ERROR [ 48%]
+tests/integration/test_database_adapter.py::test_full_integration_flow ERROR [ 49%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_module_attributes PASSED [ 50%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_standardized_response_format PASSED [ 50%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_error_response_format PASSED [ 51%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_fetch_transcript_missing_params PASSED [ 52%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_search_transcripts PASSED [ 53%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_get_channel_videos PASSED [ 54%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_extract_keywords_with_transcript PASSED [ 54%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_extract_keywords_with_video_id PASSED [ 55%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_summarize_video_with_id PASSED [ 56%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_summarize_video_missing_params PASSED [ 57%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_multiple_actions_sequence PASSED [ 58%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_registry_creation PASSED [ 59%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_register_prompt PASSED [ 59%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_get_prompt PASSED    [ 60%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_execute_prompt PASSED [ 61%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_execute_with_registry_injection PASSED [ 62%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_prompt_parameters_extraction PASSED [ 63%]
+tests/mcp/test_prompts.py::TestMCPPromptDecorator::test_decorator_registration PASSED [ 63%]
+tests/mcp/test_prompts.py::TestMCPPromptDecorator::test_decorator_with_examples PASSED [ 64%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_basic_formatting PASSED [ 65%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_next_steps PASSED [ 66%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_suggestions PASSED [ 67%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_data FAILED [ 68%]
+tests/mcp/test_prompts.py::TestMCPPromptSchema::test_prompt_to_schema PASSED [ 68%]
+tests/mcp/test_prompts.py::TestMCPPromptSchema::test_registry_to_schema PASSED [ 69%]
+tests/mcp/test_prompts.py::test_full_prompt_workflow FAILED              [ 70%]
+tests/mcp/test_prompts.py::test_error_handling PASSED                    [ 71%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_1_basic_search ERROR [ 72%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_2_search_with_no_results ERROR [ 72%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_3_search_widening ERROR [ 73%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_4_citation_extraction PASSED [ 74%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_5_metadata_extraction FAILED [ 75%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_6_channel_filtering ERROR [ 76%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_7_youtube_api_search ERROR [ 77%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_8_fetch_transcript ERROR [ 77%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_9_search_pagination ERROR [ 78%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_10_scientific_classification FAILED [ 79%]
+tests/test_arangodb_connection.py::test_connection PASSED                [ 80%]
+tests/test_integration_summary.py::test_integration PASSED               [ 81%]
+tests/test_minimal.py::test_basic PASSED                                 [ 81%]
+tests/test_minimal.py::test_import_youtube_transcripts PASSED            [ 82%]
+tests/test_minimal.py::test_import_agents PASSED                         [ 83%]
+tests/test_minimal.py::test_import_agent_manager PASSED                  [ 84%]
+tests/test_reporter_verification.py::test_reporter_basic PASSED          [ 85%]
+tests/test_reporter_verification.py::test_reporter_with_output PASSED    [ 86%]
+tests/test_reporter_verification.py::test_reporter_failure_example FAILED [ 86%]
+tests/test_reporter_verification.py::test_reporter_with_marker PASSED    [ 87%]
+tests/test_reporter_verification.py::TestReporterClass::test_class_method PASSED [ 88%]
+tests/test_reporter_verification.py::TestReporterClass::test_class_method_with_fixture PASSED [ 89%]
+tests/test_search_widening.py::TestSearchWidening::test_exact_match_no_widening PASSED [ 90%]
+tests/test_search_widening.py::TestSearchWidening::test_synonym_expansion PASSED [ 90%]
+tests/test_search_widening.py::TestSearchWidening::test_fuzzy_matching PASSED [ 91%]
+tests/test_search_widening.py::TestSearchWidening::test_no_results_after_widening PASSED [ 92%]
+tests/test_search_widening.py::TestSearchWidening::test_widening_with_channels PASSED [ 93%]
+tests/test_search_widening.py::TestSearchWidening::test_semantic_expansion PASSED [ 94%]
+tests/test_search_widening.py::TestSearchWidening::test_widening_explanation PASSED [ 95%]
+tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization FAILED [ 95%]
+tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization FAILED [ 96%]
+tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search FAILED [ 97%]
+tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly FAILED [ 98%]
+tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling FAILED [ 99%]
+tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search FAILED [100%]
+
+==================================== ERRORS ====================================
+________ ERROR at setup of TestSQLiteBackend.test_sqlite_initialization ________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+______ ERROR at setup of TestSQLiteBackend.test_sqlite_store_and_retrieve ______
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+____________ ERROR at setup of TestSQLiteBackend.test_sqlite_search ____________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+_______ ERROR at setup of TestSQLiteBackend.test_sqlite_evidence_finding _______
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+__________ ERROR at setup of TestDatabaseAdapter.test_auto_detection ___________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+__________ ERROR at setup of TestDatabaseAdapter.test_forced_backends __________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+_________ ERROR at setup of TestDatabaseAdapter.test_adapter_interface _________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+__________ ERROR at setup of TestDatabaseConfig.test_config_from_env ___________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+_____ ERROR at setup of TestDatabaseConfig.test_backend_config_generation ______
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+_________________ ERROR at setup of test_full_integration_flow _________________
+tests/integration/test_database_adapter.py:82: in test_report
+    return TestReport()
+E   NameError: name 'TestReport' is not defined
+______ ERROR at setup of TestLevel0Scenarios.test_scenario_1_basic_search ______
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+_ ERROR at setup of TestLevel0Scenarios.test_scenario_2_search_with_no_results _
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+____ ERROR at setup of TestLevel0Scenarios.test_scenario_3_search_widening _____
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+___ ERROR at setup of TestLevel0Scenarios.test_scenario_6_channel_filtering ____
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+___ ERROR at setup of TestLevel0Scenarios.test_scenario_7_youtube_api_search ___
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+____ ERROR at setup of TestLevel0Scenarios.test_scenario_8_fetch_transcript ____
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+___ ERROR at setup of TestLevel0Scenarios.test_scenario_9_search_pagination ____
+tests/scenarios/test_level0_scenarios.py:43: in youtube_client
+    config = UnifiedSearchConfig(db_path=test_db_path)
+E   TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+=================================== FAILURES ===================================
+_______________ TestAgentSystem.test_concurrent_agent_execution ________________
+tests/agents/test_agents.py:167: in test_concurrent_agent_execution
+    assert completed == 3, f"Expected 3 completed tasks, got {completed}"
+E   AssertionError: Expected 3 completed tasks, got 0
+E   assert 0 == 3
+____________________ TestAgentSystem.test_task_cancellation ____________________
+tests/agents/test_agents.py:206: in test_task_cancellation
+    assert status["status"] in ["CANCELLED", "COMPLETED"]  # Might complete before cancel
+E   AssertionError: assert 'FAILED' in ['CANCELLED', 'COMPLETED']
+__________ TestDatabaseOperations.test_search_ranking_with_real_data ___________
+tests/core/test_database.py:157: in test_search_ranking_with_real_data
+    assert len(results) >= 2, f"Expected at least 2 results, got {len(results)}"
+E   AssertionError: Expected at least 2 results, got 1
+E   assert 1 >= 2
+E    +  where 1 = len([{'video_id': 'high_relevance', 'title': 'Reinforcement Learning Deep Dive', 'channel_name': 'ML Expert', 'publish_date': '2025-05-01', 'transcript': 'Reinforcement learning is mentioned many times. Reinforcement learning algorithms. Reinforcement learning applications.', 'summary': 'All about reinforcement learning', 'enhanced_transcript': '', 'rank': -3.376822716807368e-06}])
+_______________ TestCitationDetector.test_author_year_detection ________________
+tests/core/utils/test_scientific_extractors.py:139: in test_author_year_detection
+    assert len(author_citations) >= 4
+E   AssertionError: assert 1 >= 4
+E    +  where 1 = len([Citation(type='author_year', text='Smith and Jones (2022)', id=None, authors='Smith and Jones', year='2022', title=None, context='(2017) and Devlin et al., 2019. \n        See also Smith and Jones (2022) and the work by Liu et al. 2023.', confidence=1.0, position=(77, 99))])
+_____________ TestSpeakerExtractor.test_labeled_speaker_extraction _____________
+tests/core/utils/test_scientific_extractors.py:216: in test_labeled_speaker_extraction
+    assert any('Dr.' in t for t in titles)
+E   assert False
+E    +  where False = any(<generator object TestSpeakerExtractor.test_labeled_speaker_extraction.<locals>.<genexpr> at 0x76f824de0c70>)
+________________ TestContentClassifier.test_quality_indicators _________________
+tests/core/utils/test_scientific_extractors.py:366: in test_quality_indicators
+    assert indicators['academic_language'] > 0.5
+E   assert 0.4666666666666667 > 0.5
+__________________ TestIntegration.test_end_to_end_extraction __________________
+tests/core/utils/test_scientific_extractors.py:474: in test_end_to_end_extraction
+    assert 'Stanford' in metadata['institutions']
+E   AssertionError: assert 'Stanford' in ['NLP', 'BERT', 'MIT', 'GPT']
+________ TestArxivYouTubeIntegration.test_citation_validation_pipeline _________
+tests/integration/test_arxiv_youtube_integration.py:100: in test_citation_validation_pipeline
+    assert citations[0].type == "arxiv"
+E   AssertionError: assert 'paper' == 'arxiv'
+E     
+E     - arxiv
+E     + paper
+------------------------------ Captured log setup ------------------------------
+WARNING  youtube_transcripts.deepretrieval_optimizer:deepretrieval_optimizer.py:67 Could not load LoRA adapter: No module named 'unsloth'
+________ TestArxivYouTubeIntegration.test_research_enhancement_pipeline ________
+tests/integration/test_arxiv_youtube_integration.py:124: in test_research_enhancement_pipeline
+    metadata = metadata_extractor.extract_entities(transcript)
+E   AttributeError: 'MetadataExtractor' object has no attribute 'extract_entities'
+------------------------------ Captured log setup ------------------------------
+WARNING  youtube_transcripts.deepretrieval_optimizer:deepretrieval_optimizer.py:67 Could not load LoRA adapter: No module named 'unsloth'
+___________ TestArxivYouTubeIntegration.test_cross_reference_search ____________
+tests/integration/test_arxiv_youtube_integration.py:150: in test_cross_reference_search
+    results = youtube_client.search(
+E   TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'use_widening'
+------------------------------ Captured log setup ------------------------------
+WARNING  youtube_transcripts.deepretrieval_optimizer:deepretrieval_optimizer.py:67 Could not load LoRA adapter: No module named 'unsloth'
+_________ TestArxivYouTubeIntegration.test_unified_metadata_extraction _________
+tests/integration/test_arxiv_youtube_integration.py:212: in test_unified_metadata_extraction
+    metadata = metadata_extractor.extract_entities(transcript)
+E   AttributeError: 'MetadataExtractor' object has no attribute 'extract_entities'
+_________ TestArxivYouTubeIntegration.test_research_discovery_workflow _________
+tests/integration/test_arxiv_youtube_integration.py:240: in test_research_discovery_workflow
+    video_results = youtube_client.search(topic, limit=5)
+src/youtube_transcripts/unified_search.py:150: in search
+    widened = self.search_widener.widen_search(search_query)
+E   AttributeError: 'SearchWidener' object has no attribute 'widen_search'
+------------------------------ Captured log setup ------------------------------
+WARNING  youtube_transcripts.deepretrieval_optimizer:deepretrieval_optimizer.py:67 Could not load LoRA adapter: No module named 'unsloth'
+______________ TestFormatPromptResponse.test_formatting_with_data ______________
+tests/mcp/test_prompts.py:215: in test_formatting_with_data
+    assert '"items": ["a", "b"]' in response
+E   assert '"items": ["a", "b"]' in 'Results\n\n## Data\n```json\n{\n  "count": 42,\n  "items": [\n    "a",\n    "b"\n  ]\n}\n```'
+__________________________ test_full_prompt_workflow ___________________________
+tests/mcp/test_prompts.py:298: in test_full_prompt_workflow
+    assert "2 workflow prompts" in result2
+E   AssertionError: assert '2 workflow prompts' in 'Processing... Found 0 workflow prompts'
+___________ TestLevel0Scenarios.test_scenario_5_metadata_extraction ____________
+tests/scenarios/test_level0_scenarios.py:187: in test_scenario_5_metadata_extraction
+    metadata = extractor.extract_all(test_transcript)
+E   AttributeError: 'MetadataExtractor' object has no attribute 'extract_all'. Did you mean: 'extract_urls'?
+________ TestLevel0Scenarios.test_scenario_10_scientific_classification ________
+tests/scenarios/test_level0_scenarios.py:354: in test_scenario_10_scientific_classification
+    content_type = classifier.classify_content_type(transcript)
+E   AttributeError: 'ContentClassifier' object has no attribute 'classify_content_type'. Did you mean: '_classify_content_type'?
+________________________ test_reporter_failure_example _________________________
+tests/test_reporter_verification.py:24: in test_reporter_failure_example
+    assert actual == expected, f"Expected {expected} but got {actual}"
+E   AssertionError: Expected 5 but got 4
+E   assert 4 == 5
+___________ TestUnifiedSearch.test_basic_search_without_optimization ___________
+tests/test_unified_search.py:81: in test_basic_search_without_optimization
+    search = UnifiedYouTubeSearch(config, db_path=test_db)
+E   TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+_______________ TestUnifiedSearch.test_search_with_optimization ________________
+tests/test_unified_search.py:113: in test_search_with_optimization
+    search = UnifiedYouTubeSearch(config, db_path=test_db)
+E   TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+________________ TestUnifiedSearch.test_channel_specific_search ________________
+tests/test_unified_search.py:130: in test_channel_specific_search
+    search = UnifiedYouTubeSearch(config, db_path=test_db)
+E   TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+_______________ TestUnifiedSearch.test_query_optimizer_directly ________________
+tests/test_unified_search.py:165: in test_query_optimizer_directly
+    assert result["original"] == query
+E   assert '<think>\nThe user\'s query is very short and likely misspelled or incomplete. It appears they might be looking for a word related to "VERL". To optimize this search, I will make it more specific by assuming they meant "verl" which could refer to various terms like "verified", "verify", "vernacular", etc. Additionally, I\'ll add some keywords that are commonly searched together with these terms, such as "YouTube" for context. This will help in retrieving the most relevant transcripts.\n</think>\n<answer>\nverified+youtube+verl OR verify+youtube+verl OR vernacular+youtube+verl\n[/ Your optimized query]\n</answer>' == 'VERL'
+E     
+E     - VERL
+E     + <think>
+E     + The user's query is very short and likely misspelled or incomplete. It appears they might be looking for a word related to "VERL". To optimize this search, I will make it more specific by assuming they meant "verl" which could refer to various terms like "verified", "verify", "vernacular", etc. Additionally, I'll add some keywords that are commonly searched together with these terms, such as "YouTube" for context. This will help in retrieving the most relevant transcripts.
+E     + </think>
+E     + <answer>
+E     + verified+youtube+verl OR verify+youtube+verl OR vernacular+youtube+verl
+E     + [/ Your optimized query]
+E     + </answer>
+------------------------------ Captured log call -------------------------------
+WARNING  youtube_transcripts.deepretrieval_optimizer:deepretrieval_optimizer.py:67 Could not load LoRA adapter: No module named 'unsloth'
+_________________ TestUnifiedSearch.test_empty_query_handling __________________
+tests/test_unified_search.py:175: in test_empty_query_handling
+    search = UnifiedYouTubeSearch(config, db_path=test_db)
+E   TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+___________________ TestUnifiedSearch.test_multi_word_search ___________________
+tests/test_unified_search.py:189: in test_multi_word_search
+    search = UnifiedYouTubeSearch(config, db_path=test_db)
+E   TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+=============================== warnings summary ===============================
+tests/integration/test_database_adapter.py:35
+  /home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_database_adapter.py:35: PytestCollectionWarning: cannot collect test class 'TestReportGenerator' because it has a __init__ constructor (from: tests/integration/test_database_adapter.py)
+    class TestReportGenerator:
+
+tests/test_arangodb_connection.py::test_connection
+  /home/graham/workspace/experiments/youtube_transcripts/.venv/lib/python3.12/site-packages/_pytest/python.py:163: PytestReturnNotNoneWarning: Expected None, but tests/test_arangodb_connection.py::test_connection returned True, which will be an error in a future version of pytest.  Did you mean to use `assert` instead of `return`?
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: test_reports/youtube_transcripts_comprehensive_test.json
+=========================== short test summary info ============================
+FAILED tests/agents/test_agents.py::TestAgentSystem::test_concurrent_agent_execution - AssertionError: Expected 3 completed tasks, got 0
+assert 0 == 3
+FAILED tests/agents/test_agents.py::TestAgentSystem::test_task_cancellation - AssertionError: assert 'FAILED' in ['CANCELLED', 'COMPLETED']
+FAILED tests/core/test_database.py::TestDatabaseOperations::test_search_ranking_with_real_data - AssertionError: Expected at least 2 results, got 1
+assert 1 >= 2
+ +  where 1 = len([{'video_id': 'high_relevance', 'title': 'Reinforcement Learning Deep Dive', 'channel_name': 'ML Expert', 'publish_date': '2025-05-01', 'transcript': 'Reinforcement learning is mentioned many times. Reinforcement learning algorithms. Reinforcement learning applications.', 'summary': 'All about reinforcement learning', 'enhanced_transcript': '', 'rank': -3.376822716807368e-06}])
+FAILED tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_author_year_detection - AssertionError: assert 1 >= 4
+ +  where 1 = len([Citation(type='author_year', text='Smith and Jones (2022)', id=None, authors='Smith and Jones', year='2022', title=None, context='(2017) and Devlin et al., 2019. \n        See also Smith and Jones (2022) and the work by Liu et al. 2023.', confidence=1.0, position=(77, 99))])
+FAILED tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_labeled_speaker_extraction - assert False
+ +  where False = any(<generator object TestSpeakerExtractor.test_labeled_speaker_extraction.<locals>.<genexpr> at 0x76f824de0c70>)
+FAILED tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_quality_indicators - assert 0.4666666666666667 > 0.5
+FAILED tests/core/utils/test_scientific_extractors.py::TestIntegration::test_end_to_end_extraction - AssertionError: assert 'Stanford' in ['NLP', 'BERT', 'MIT', 'GPT']
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_citation_validation_pipeline - AssertionError: assert 'paper' == 'arxiv'
+  
+  - arxiv
+  + paper
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_enhancement_pipeline - AttributeError: 'MetadataExtractor' object has no attribute 'extract_entities'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_cross_reference_search - TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'use_widening'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_unified_metadata_extraction - AttributeError: 'MetadataExtractor' object has no attribute 'extract_entities'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_discovery_workflow - AttributeError: 'SearchWidener' object has no attribute 'widen_search'
+FAILED tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_data - assert '"items": ["a", "b"]' in 'Results\n\n## Data\n```json\n{\n  "count": 42,\n  "items": [\n    "a",\n    "b"\n  ]\n}\n```'
+FAILED tests/mcp/test_prompts.py::test_full_prompt_workflow - AssertionError: assert '2 workflow prompts' in 'Processing... Found 0 workflow prompts'
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_5_metadata_extraction - AttributeError: 'MetadataExtractor' object has no attribute 'extract_all'. Did you mean: 'extract_urls'?
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_10_scientific_classification - AttributeError: 'ContentClassifier' object has no attribute 'classify_content_type'. Did you mean: '_classify_content_type'?
+FAILED tests/test_reporter_verification.py::test_reporter_failure_example - AssertionError: Expected 5 but got 4
+assert 4 == 5
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization - TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization - TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search - TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly - assert '<think>\nThe user\'s query is very short and likely misspelled or incomplete. It appears they might be looking for a word related to "VERL". To optimize this search, I will make it more specific by assuming they meant "verl" which could refer to various terms like "verified", "verify", "vernacular", etc. Additionally, I\'ll add some keywords that are commonly searched together with these terms, such as "YouTube" for context. This will help in retrieving the most relevant transcripts.\n</think>\n<answer>\nverified+youtube+verl OR verify+youtube+verl OR vernacular+youtube+verl\n[/ Your optimized query]\n</answer>' == 'VERL'
+  
+  - VERL
+  + <think>
+  + The user's query is very short and likely misspelled or incomplete. It appears they might be looking for a word related to "VERL". To optimize this search, I will make it more specific by assuming they meant "verl" which could refer to various terms like "verified", "verify", "vernacular", etc. Additionally, I'll add some keywords that are commonly searched together with these terms, such as "YouTube" for context. This will help in retrieving the most relevant transcripts.
+  + </think>
+  + <answer>
+  + verified+youtube+verl OR verify+youtube+verl OR vernacular+youtube+verl
+  + [/ Your optimized query]
+  + </answer>
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling - TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search - TypeError: UnifiedYouTubeSearch.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_initialization - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_store_and_retrieve - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_search - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_evidence_finding - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_auto_detection - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_forced_backends - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_adapter_interface - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestDatabaseConfig::test_config_from_env - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::TestDatabaseConfig::test_backend_config_generation - NameError: name 'TestReport' is not defined
+ERROR tests/integration/test_database_adapter.py::test_full_integration_flow - NameError: name 'TestReport' is not defined
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_1_basic_search - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_2_search_with_no_results - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_3_search_widening - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_6_channel_filtering - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_7_youtube_api_search - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_8_fetch_transcript - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+ERROR tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_9_search_pagination - TypeError: UnifiedSearchConfig.__init__() got an unexpected keyword argument 'db_path'
+== 23 failed, 74 passed, 8 skipped, 2 warnings, 17 errors in 64.22s (0:01:04) ==

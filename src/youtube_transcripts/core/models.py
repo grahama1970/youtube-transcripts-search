@@ -1,41 +1,43 @@
 """
 Data models for YouTube transcripts.
+Module: models.py
+Description: Data models and schemas for models
 
 This module defines the core data structures used throughout the application.
 """
 
 from dataclasses import dataclass
-from typing import Optional, Dict, Any
 from datetime import datetime
+from typing import Any
 
 
 @dataclass
 class Transcript:
     """Represents a YouTube video transcript with metadata."""
-    
+
     video_id: str
     title: str
     channel_name: str
     text: str  # The actual transcript text
     publish_date: str  # ISO format date string
     duration: int  # Duration in seconds
-    
+
     # Optional fields
-    summary: Optional[str] = None
-    enhanced_transcript: Optional[str] = None
-    metadata: Optional[Dict[str, Any]] = None
-    
+    summary: str | None = None
+    enhanced_transcript: str | None = None
+    metadata: dict[str, Any] | None = None
+
     @property
     def url(self) -> str:
         """Get the YouTube URL for this video."""
         return f"https://www.youtube.com/watch?v={self.video_id}"
-    
+
     @property
     def publish_datetime(self) -> datetime:
         """Get publish date as datetime object."""
         return datetime.fromisoformat(self.publish_date.replace('Z', '+00:00'))
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary representation."""
         return {
             'video_id': self.video_id,
@@ -51,14 +53,14 @@ class Transcript:
             'metadata': self.metadata,
             'url': self.url
         }
-    
+
     @classmethod
-    def from_dict(cls, data: Dict[str, Any]) -> 'Transcript':
+    def from_dict(cls, data: dict[str, Any]) -> 'Transcript':
         """Create Transcript from dictionary."""
         # Handle various field name aliases
         text = data.get('text') or data.get('transcript') or data.get('content', '')
         publish_date = data.get('publish_date') or data.get('published_at', '')
-        
+
         return cls(
             video_id=data['video_id'],
             title=data['title'],

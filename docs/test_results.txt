@@ -1,0 +1,41 @@
+/home/graham/workspace/experiments/youtube_transcripts/.venv/lib/python3.12/site-packages/pytest_asyncio/plugin.py:208: PytestDeprecationWarning: The configuration option "asyncio_default_fixture_loop_scope" is unset.
+The event loop scope for asynchronous fixtures will default to the fixture caching scope. Future versions of pytest-asyncio will default the loop scope for asynchronous fixtures to function scope. Set the default fixture loop scope explicitly in order to avoid unexpected behavior in the future. Valid fixture loop scopes are: "function", "class", "module", "package", "session"
+
+  warnings.warn(PytestDeprecationWarning(_DEFAULT_FIXTURE_LOOP_SCOPE_UNSET))
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0 -- /home/graham/workspace/experiments/youtube_transcripts/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /home/graham/workspace/experiments/youtube_transcripts
+configfile: pytest.ini
+plugins: cov-6.1.1, allure-pytest-2.14.2, asyncio-1.0.0, anyio-4.9.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=None, asyncio_default_test_loop_scope=function
+[1mcollecting ... [0mcollected 0 items / 1 error
+
+==================================== ERRORS ====================================
+[31m[1m___ ERROR collecting tests/level_0/test_youtube_transcripts_standardized.py ____[0m
+[31mImportError while importing test module '/home/graham/workspace/experiments/youtube_transcripts/tests/level_0/test_youtube_transcripts_standardized.py'.
+Hint: make sure your test modules/packages have valid Python names.
+Traceback:
+.venv/lib/python3.12/site-packages/_pytest/python.py:493: in importtestmodule
+    mod = import_path(
+.venv/lib/python3.12/site-packages/_pytest/pathlib.py:587: in import_path
+    importlib.import_module(module_name)
+/usr/lib/python3.12/importlib/__init__.py:90: in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+<frozen importlib._bootstrap>:1387: in _gcd_import
+    ???
+<frozen importlib._bootstrap>:1360: in _find_and_load
+    ???
+<frozen importlib._bootstrap>:1331: in _find_and_load_unlocked
+    ???
+<frozen importlib._bootstrap>:935: in _load_unlocked
+    ???
+.venv/lib/python3.12/site-packages/_pytest/assertion/rewrite.py:185: in exec_module
+    exec(co, module.__dict__)
+tests/level_0/test_youtube_transcripts_standardized.py:10: in <module>
+    from youtube_transcripts.integrations.youtube_transcripts_module import YoutubeTranscriptsModule
+E   ModuleNotFoundError: No module named 'youtube_transcripts.integrations'[0m
+[36m[1m=========================== short test summary info ============================[0m
+[31mERROR[0m tests/level_0/test_youtube_transcripts_standardized.py
+!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
+[31m=============================== [31m[1m1 error[0m[31m in 0.12s[0m[31m ===============================[0m

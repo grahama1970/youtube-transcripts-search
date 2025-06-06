@@ -1,27 +1,44 @@
-import re
-from typing import List, Dict
+"""
+Module: github_extractor.py
+Description: Functions for github extractor operations
 
-def extract_github_repos(transcript: str) -> List[Dict[str, str]]:
+External Dependencies:
+- None (uses only standard library)
+
+Sample Input:
+>>> # Add specific examples based on module functionality
+
+Expected Output:
+>>> # Add expected output examples
+
+Example Usage:
+>>> # Add usage examples
+"""
+
+import re
+
+
+def extract_github_repos(transcript: str) -> list[dict[str, str]]:
     """Extract GitHub repositories mentioned in transcripts"""
-    
+
     patterns = [
         # Direct GitHub URLs
         r'github\.com/([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)',
-        
+
         # Verbal mentions
         r'(?:the\s+)?code\s+is\s+(?:at|on)\s+github[:\s]+([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)',
         r'check\s+out\s+([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)\s+on\s+github',
         r'github\s+repository[:\s]+([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)',
-        
+
         # Common patterns
         r'(?:my|our|the)\s+([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)\s+(?:repo|repository)',
     ]
-    
+
     repos = set()
     for pattern in patterns:
         matches = re.findall(pattern, transcript, re.IGNORECASE)
         repos.update(matches)
-    
+
     # Validate and format results
     results = []
     for repo in repos:
@@ -33,7 +50,7 @@ def extract_github_repos(transcript: str) -> List[Dict[str, str]]:
                 "name": name,
                 "url": f"https://github.com/{repo}"
             })
-    
+
     return results
 
 # Test function
@@ -43,7 +60,7 @@ if __name__ == "__main__":
     at github.com/volcengine/verl. Also check out bytedance/verl-examples 
     on GitHub for more examples.
     """
-    
+
     repos = extract_github_repos(test_transcript)
     for repo in repos:
         print(f"Found: {repo['full_name']} - {repo['url']}")

@@ -1,6 +1,8 @@
 """
 Database Configuration for YouTube Transcripts
 Supports both SQLite (standalone) and ArangoDB (Granger integration)
+Module: database_config.py
+Description: Configuration management and settings
 
 This module provides configuration for dual database support,
 allowing the project to work standalone or as part of Granger.
@@ -16,9 +18,9 @@ Example Usage:
 """
 
 import os
-from typing import Optional, Literal, Dict, Any
-from pathlib import Path
 from dataclasses import dataclass
+from typing import Any, Literal
+
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -29,16 +31,16 @@ load_dotenv()
 class SQLiteConfig:
     """Configuration for SQLite backend"""
     db_path: str = "youtube_transcripts.db"
-    
+
     # Performance settings
     journal_mode: str = "WAL"  # Write-Ahead Logging for better concurrency
     cache_size: int = -64000  # 64MB cache
     synchronous: str = "NORMAL"  # Balance between safety and speed
-    
+
     # FTS5 settings
     fts_tokenize: str = "porter"  # Porter stemming for better search
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             'db_path': self.db_path,
             'journal_mode': self.journal_mode,
@@ -55,17 +57,17 @@ class ArangoDBConfig:
     database: str = "memory_bank"  # Granger's unified memory bank
     username: str = "root"
     password: str = ""
-    
+
     # Collection prefix for YouTube data
     collection_prefix: str = "youtube_"
-    
+
     # Graph name
     graph_name: str = "youtube_knowledge_graph"
-    
+
     # Connection pool settings
     connection_pool_size: int = 10
-    
-    def to_dict(self) -> Dict[str, Any]:
+
+    def to_dict(self) -> dict[str, Any]:
         return {
             'host': self.host,
             'database': self.database,
@@ -79,35 +81,35 @@ class ArangoDBConfig:
 @dataclass
 class DatabaseConfig:
     """Main database configuration"""
-    
+
     # Backend selection
     backend: Literal["sqlite", "arangodb", "auto"] = "auto"
-    
+
     # Backend-specific configs
     sqlite: SQLiteConfig = None
     arangodb: ArangoDBConfig = None
-    
+
     # Feature flags
     enable_embeddings: bool = True
     enable_graph_features: bool = True
     enable_research_features: bool = True
-    
+
     # Cache settings (applies to both backends)
     cache_enabled: bool = True
     cache_ttl: int = 3600  # 1 hour
-    
+
     def __post_init__(self):
         if self.sqlite is None:
             self.sqlite = SQLiteConfig()
         if self.arangodb is None:
             self.arangodb = ArangoDBConfig()
-    
+
     @classmethod
     def from_env(cls) -> "DatabaseConfig":
         """Create configuration from environment variables"""
         # Determine backend
         backend = os.getenv("YOUTUBE_DB_BACKEND", "auto")
-        
+
         # SQLite configuration
         sqlite_config = SQLiteConfig(
             db_path=os.getenv("YOUTUBE_SQLITE_PATH", "youtube_transcripts.db"),
@@ -115,7 +117,7 @@ class DatabaseConfig:
             cache_size=int(os.getenv("YOUTUBE_SQLITE_CACHE_SIZE", "-64000")),
             synchronous=os.getenv("YOUTUBE_SQLITE_SYNCHRONOUS", "NORMAL")
         )
-        
+
         # ArangoDB configuration
         arangodb_config = ArangoDBConfig(
             host=os.getenv("YOUTUBE_ARANGO_HOST", "http://localhost:8529"),
@@ -125,7 +127,7 @@ class DatabaseConfig:
             collection_prefix=os.getenv("YOUTUBE_ARANGO_PREFIX", "youtube_"),
             graph_name=os.getenv("YOUTUBE_ARANGO_GRAPH", "youtube_knowledge_graph")
         )
-        
+
         return cls(
             backend=backend,
             sqlite=sqlite_config,
@@ -136,8 +138,8 @@ class DatabaseConfig:
             cache_enabled=os.getenv("YOUTUBE_CACHE_ENABLED", "true").lower() == "true",
             cache_ttl=int(os.getenv("YOUTUBE_CACHE_TTL", "3600"))
         )
-    
-    def get_backend_config(self) -> Dict[str, Any]:
+
+    def get_backend_config(self) -> dict[str, Any]:
         """Get configuration for the selected backend"""
         if self.backend == "sqlite":
             return {
@@ -156,7 +158,7 @@ class DatabaseConfig:
                 'sqlite_path': self.sqlite.db_path,
                 'arango_config': self.arangodb.to_dict()
             }
-    
+
     def requires_arangodb(self) -> bool:
         """Check if configuration requires ArangoDB features"""
         return (
@@ -169,7 +171,7 @@ class DatabaseConfig:
 
 
 # Global configuration instance
-_config: Optional[DatabaseConfig] = None
+_config: DatabaseConfig | None = None
 
 
 def get_database_config() -> DatabaseConfig:
@@ -189,7 +191,7 @@ def set_database_config(config: DatabaseConfig):
 def create_database_adapter():
     """Create a database adapter based on current configuration"""
     from .database_adapter import DatabaseAdapter
-    
+
     config = get_database_config()
     return DatabaseAdapter(config.get_backend_config())
 
@@ -240,6 +242,6 @@ if __name__ == "__main__":
     print(f"SQLite path: {config.sqlite.db_path}")
     print(f"ArangoDB host: {config.arangodb.host}")
     print(f"Requires ArangoDB: {config.requires_arangodb()}")
-    
+
     # Create example env file
     create_env_template()

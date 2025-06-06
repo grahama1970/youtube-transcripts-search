@@ -1,0 +1,218 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-8.3.5, pluggy-1.6.0 -- /home/graham/workspace/experiments/youtube_transcripts/.venv/bin/python3
+cachedir: .pytest_cache
+metadata: {'Python': '3.12.3', 'Platform': 'Linux-6.8.0-57-generic-x86_64-with-glibc2.39', 'Packages': {'pytest': '8.3.5', 'pluggy': '1.6.0'}, 'Plugins': {'env': '1.1.5', 'metadata': '3.1.1', 'cov': '6.1.1', 'allure-pytest': '2.14.2', 'json-report': '1.5.0', 'asyncio': '1.0.0', 'anyio': '4.9.0'}}
+rootdir: /home/graham/workspace/experiments/youtube_transcripts
+configfile: pytest.ini
+plugins: env-1.1.5, metadata-3.1.1, cov-6.1.1, allure-pytest-2.14.2, json-report-1.5.0, asyncio-1.0.0, anyio-4.9.0
+asyncio: mode=Mode.AUTO, asyncio_default_fixture_loop_scope=function, asyncio_default_test_loop_scope=function
+collecting ... collected 122 items
+
+tests/agents/test_agents.py::TestAgentSystem::test_agent_manager_task_submission PASSED [  0%]
+tests/agents/test_agents.py::TestAgentSystem::test_search_optimizer_agent_execution PASSED [  1%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_progress_tracking PASSED [  2%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_message_passing PASSED [  3%]
+tests/agents/test_agents.py::TestAgentSystem::test_concurrent_agent_execution FAILED [  4%]
+tests/agents/test_agents.py::TestAgentSystem::test_agent_error_handling PASSED [  4%]
+tests/agents/test_agents.py::TestAgentSystem::test_task_cancellation FAILED [  5%]
+tests/core/test_database.py::TestDatabaseOperations::test_initialize_database_creates_tables PASSED [  6%]
+tests/core/test_database.py::TestDatabaseOperations::test_add_transcript_with_real_data PASSED [  7%]
+tests/core/test_database.py::TestDatabaseOperations::test_search_transcripts_with_special_characters PASSED [  8%]
+tests/core/test_database.py::TestDatabaseOperations::test_search_ranking_with_real_data PASSED [  9%]
+tests/core/test_database.py::TestDatabaseOperations::test_channel_filtering PASSED [  9%]
+tests/core/test_database.py::TestDatabaseOperations::test_cleanup_old_transcripts PASSED [ 10%]
+tests/core/test_youtube.py::TestRealYouTube::test_extract_video_id PASSED [ 11%]
+tests/core/test_youtube.py::TestRealYouTube::test_fetch_real_transcript PASSED [ 12%]
+tests/core/test_youtube.py::TestRealYouTube::test_get_channel_videos_real PASSED [ 13%]
+tests/core/test_youtube.py::TestRealYouTube::test_process_channels_with_empty_list PASSED [ 13%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_pipeline_initialization PASSED [ 14%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_citation_detection PASSED [ 15%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_institution_recognition PASSED [ 16%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_technical_term_extraction PASSED [ 17%]
+tests/core/utils/test_scientific_extractors.py::TestScientificPipeline::test_speaker_extraction_in_pipeline PASSED [ 18%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_arxiv_detection PASSED [ 18%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_doi_detection PASSED [ 19%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_author_year_detection FAILED [ 20%]
+tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_citation_formatting PASSED [ 21%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_introduction_extraction PASSED [ 22%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_labeled_speaker_extraction FAILED [ 22%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_speaker_deduplication PASSED [ 23%]
+tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_speaker_formatting PASSED [ 24%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_content_type_classification PASSED [ 25%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_academic_level_classification PASSED [ 26%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_topic_extraction PASSED [ 27%]
+tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_quality_indicators FAILED [ 27%]
+tests/core/utils/test_scientific_extractors.py::TestMetadataExtractor::test_full_extraction PASSED [ 28%]
+tests/core/utils/test_scientific_extractors.py::TestMetadataExtractor::test_batch_extraction PASSED [ 29%]
+tests/core/utils/test_scientific_extractors.py::TestIntegration::test_end_to_end_extraction FAILED [ 30%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_store_and_retrieve_with_embeddings SKIPPED [ 31%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_hybrid_search SKIPPED [ 31%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_citation_network SKIPPED [ 32%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_speaker_relationships SKIPPED [ 33%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_entity_linking SKIPPED [ 34%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_find_related_videos SKIPPED [ 35%]
+tests/integration/test_arangodb_features.py::TestArangoDBIntegration::test_research_analyzer_integration SKIPPED [ 36%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_citation_validation_pipeline FAILED [ 36%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_enhancement_pipeline FAILED [ 37%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_cross_reference_search FAILED [ 38%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_evidence_based_validation PASSED [ 39%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_unified_metadata_extraction FAILED [ 40%]
+tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_discovery_workflow FAILED [ 40%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_initialization PASSED [ 41%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_store_and_retrieve PASSED [ 42%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_search PASSED [ 43%]
+tests/integration/test_database_adapter.py::TestSQLiteBackend::test_sqlite_evidence_finding PASSED [ 44%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_auto_detection PASSED [ 45%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_forced_backends PASSED [ 45%]
+tests/integration/test_database_adapter.py::TestDatabaseAdapter::test_adapter_interface PASSED [ 46%]
+tests/integration/test_database_adapter.py::TestDatabaseConfig::test_config_from_env PASSED [ 47%]
+tests/integration/test_database_adapter.py::TestDatabaseConfig::test_backend_config_generation PASSED [ 48%]
+tests/integration/test_database_adapter.py::test_full_integration_flow PASSED [ 49%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_module_attributes PASSED [ 50%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_standardized_response_format PASSED [ 50%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_error_response_format PASSED [ 51%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_fetch_transcript_missing_params PASSED [ 52%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_search_transcripts PASSED [ 53%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_get_channel_videos PASSED [ 54%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_extract_keywords_with_transcript PASSED [ 54%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_extract_keywords_with_video_id PASSED [ 55%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_summarize_video_with_id PASSED [ 56%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_summarize_video_missing_params PASSED [ 57%]
+tests/level_0/test_youtube_transcripts_standardized.py::TestYoutubeTranscriptsStandardized::test_multiple_actions_sequence PASSED [ 58%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_registry_creation PASSED [ 59%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_register_prompt PASSED [ 59%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_get_prompt PASSED    [ 60%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_execute_prompt PASSED [ 61%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_execute_with_registry_injection PASSED [ 62%]
+tests/mcp/test_prompts.py::TestPromptRegistry::test_prompt_parameters_extraction PASSED [ 63%]
+tests/mcp/test_prompts.py::TestMCPPromptDecorator::test_decorator_registration PASSED [ 63%]
+tests/mcp/test_prompts.py::TestMCPPromptDecorator::test_decorator_with_examples PASSED [ 64%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_basic_formatting PASSED [ 65%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_next_steps PASSED [ 66%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_suggestions PASSED [ 67%]
+tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_data FAILED [ 68%]
+tests/mcp/test_prompts.py::TestMCPPromptSchema::test_prompt_to_schema PASSED [ 68%]
+tests/mcp/test_prompts.py::TestMCPPromptSchema::test_registry_to_schema PASSED [ 69%]
+tests/mcp/test_prompts.py::test_full_prompt_workflow FAILED              [ 70%]
+tests/mcp/test_prompts.py::test_error_handling PASSED                    [ 71%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_1_basic_search FAILED [ 72%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_2_search_with_no_results FAILED [ 72%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_3_search_widening FAILED [ 73%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_4_citation_extraction FAILED [ 74%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_5_metadata_extraction FAILED [ 75%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_6_channel_filtering FAILED [ 76%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_7_youtube_api_search FAILED [ 77%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_8_fetch_transcript SKIPPEDbute
+'fetch_single_transcript')                                               [ 77%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_9_search_pagination FAILED [ 78%]
+tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_10_scientific_classification FAILED [ 79%]
+tests/test_arangodb_connection.py::test_connection PASSED                [ 80%]
+tests/test_integration_summary.py::test_integration PASSED               [ 81%]
+tests/test_minimal.py::test_basic PASSED                                 [ 81%]
+tests/test_minimal.py::test_import_youtube_transcripts PASSED            [ 82%]
+tests/test_minimal.py::test_import_agents PASSED                         [ 83%]
+tests/test_minimal.py::test_import_agent_manager PASSED                  [ 84%]
+tests/test_reporter_verification.py::test_reporter_basic PASSED          [ 85%]
+tests/test_reporter_verification.py::test_reporter_with_output PASSED    [ 86%]
+tests/test_reporter_verification.py::test_reporter_failure_example FAILED [ 86%]
+tests/test_reporter_verification.py::test_reporter_with_marker PASSED    [ 87%]
+tests/test_reporter_verification.py::TestReporterClass::test_class_method PASSED [ 88%]
+tests/test_reporter_verification.py::TestReporterClass::test_class_method_with_fixture PASSED [ 89%]
+tests/test_search_widening.py::TestSearchWidening::test_exact_match_no_widening PASSED [ 90%]
+tests/test_search_widening.py::TestSearchWidening::test_synonym_expansion PASSED [ 90%]
+tests/test_search_widening.py::TestSearchWidening::test_fuzzy_matching PASSED [ 91%]
+tests/test_search_widening.py::TestSearchWidening::test_no_results_after_widening PASSED [ 92%]
+tests/test_search_widening.py::TestSearchWidening::test_widening_with_channels PASSED [ 93%]
+tests/test_search_widening.py::TestSearchWidening::test_semantic_expansion PASSED [ 94%]
+tests/test_search_widening.py::TestSearchWidening::test_widening_explanation PASSED [ 95%]
+tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization FAILED [ 95%]
+tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization FAILED [ 96%]
+tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search FAILED [ 97%]
+tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly FAILED [ 98%]
+tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling FAILED [ 99%]
+tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search FAILED [100%]
+
+=================================== FAILURES ===================================
+/home/graham/workspace/experiments/youtube_transcripts/tests/agents/test_agents.py:167: AssertionError: Expected 3 completed tasks, got 0
+/home/graham/workspace/experiments/youtube_transcripts/tests/agents/test_agents.py:206: AssertionError: assert 'FAILED' in ['CANCELLED', 'COMPLETED']
+/home/graham/workspace/experiments/youtube_transcripts/tests/core/utils/test_scientific_extractors.py:139: AssertionError: assert 1 >= 4
+/home/graham/workspace/experiments/youtube_transcripts/tests/core/utils/test_scientific_extractors.py:216: assert False
+/home/graham/workspace/experiments/youtube_transcripts/tests/core/utils/test_scientific_extractors.py:366: assert 0.4666666666666667 > 0.5
+/home/graham/workspace/experiments/youtube_transcripts/tests/core/utils/test_scientific_extractors.py:474: AssertionError: assert 'Stanford' in ['NLP', 'MIT', 'BERT', 'GPT']
+/home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_arxiv_youtube_integration.py:105: assert 0 > 0
+/home/graham/workspace/experiments/youtube_transcripts/src/youtube_transcripts/metadata_extractor.py:187: AttributeError: 'str' object has no attribute 'text'
+/home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_arxiv_youtube_integration.py:156: AttributeError: 'list' object has no attribute 'get'
+/home/graham/workspace/experiments/youtube_transcripts/src/youtube_transcripts/metadata_extractor.py:187: AttributeError: 'str' object has no attribute 'text'
+/home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_arxiv_youtube_integration.py:242: TypeError: list indices must be integers or slices, not str
+/home/graham/workspace/experiments/youtube_transcripts/tests/mcp/test_prompts.py:215: assert '"items": ["a", "b"]' in 'Results\n\n## Data\n```json\n{\n  "count": 42,\n  "items": [\n    "a",\n    "b"\n  ]\n}\n```'
+/home/graham/workspace/experiments/youtube_transcripts/tests/mcp/test_prompts.py:298: AssertionError: assert '2 workflow prompts' in 'Processing... Found 0 workflow prompts'
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:88: AssertionError: assert 'results' in [{'source': 'widened_search', 'video_id': 'rl_basics_001', 'title': 'Reinforcement Learning Fundamentals', 'channel_name': 'TwoMinutePapers', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': 'SKAGSVyMr-w', 'title': 'Top Open Source GitHub Projects: AI, Code Security &amp; More! #127', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': '7IPPHuLI1tk', 'title': 'Open Source Gems: AI Agents, Diffusion Models &amp; More! #136', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}]
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:110: AssertionError: assert 'results' in []
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:136: AttributeError: 'list' object has no attribute 'get'
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:171: AssertionError: assert None == '1810.04805'
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:192: TypeError: Transcript.__init__() got an unexpected keyword argument 'content'
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:245: TypeError: list indices must be integers or slices, not str
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:257: AttributeError: 'UnifiedYouTubeSearch' object has no attribute 'youtube_api_key'. Did you mean: 'youtube_api'?
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:319: TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'offset'
+/home/graham/workspace/experiments/youtube_transcripts/tests/scenarios/test_level0_scenarios.py:367: TypeError: Transcript.__init__() got an unexpected keyword argument 'content'
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_reporter_verification.py:24: AssertionError: Expected 5 but got 4
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:87: AssertionError: assert 'query' in [{'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'SKAGSVyMr-w', 'title': 'Top Open Source GitHub Projects: AI, Code Security &amp; More! #127', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': '7IPPHuLI1tk', 'title': 'Open Source Gems: AI Agents, Diffusion Models &amp; More! #136', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}]
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:119: TypeError: list indices must be integers or slices, not str
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:133: TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'channels'
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:167: AssertionError: Expected 'Volcano Engine Reinforcement Learning' in optimized query for 'VERL', got: VERL transcript
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:181: TypeError: list indices must be integers or slices, not str
+/home/graham/workspace/experiments/youtube_transcripts/tests/test_unified_search.py:195: TypeError: list indices must be integers or slices, not str
+=============================== warnings summary ===============================
+tests/integration/test_database_adapter.py:35
+  /home/graham/workspace/experiments/youtube_transcripts/tests/integration/test_database_adapter.py:35: PytestCollectionWarning: cannot collect test class 'TestReportGenerator' because it has a __init__ constructor (from: tests/integration/test_database_adapter.py)
+    class TestReportGenerator:
+
+tests/test_arangodb_connection.py::test_connection
+  /home/graham/workspace/experiments/youtube_transcripts/.venv/lib/python3.12/site-packages/_pytest/python.py:163: PytestReturnNotNoneWarning: Expected None, but tests/test_arangodb_connection.py::test_connection returned True, which will be an error in a future version of pytest.  Did you mean to use `assert` instead of `return`?
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+--------------------------------- JSON report ----------------------------------
+report saved to: test_reports/youtube_transcripts_final_comprehensive.json
+=========================== short test summary info ============================
+FAILED tests/agents/test_agents.py::TestAgentSystem::test_concurrent_agent_execution - AssertionError: Expected 3 completed tasks, got 0
+assert 0 == 3
+FAILED tests/agents/test_agents.py::TestAgentSystem::test_task_cancellation - AssertionError: assert 'FAILED' in ['CANCELLED', 'COMPLETED']
+FAILED tests/core/utils/test_scientific_extractors.py::TestCitationDetector::test_author_year_detection - AssertionError: assert 1 >= 4
+ +  where 1 = len([Citation(type='author_year', text='Smith and Jones (2022)', id=None, authors='Smith and Jones', year='2022', title=None, context='(2017) and Devlin et al., 2019. \n        See also Smith and Jones (2022) and the work by Liu et al. 2023.', confidence=1.0, position=(77, 99))])
+FAILED tests/core/utils/test_scientific_extractors.py::TestSpeakerExtractor::test_labeled_speaker_extraction - assert False
+ +  where False = any(<generator object TestSpeakerExtractor.test_labeled_speaker_extraction.<locals>.<genexpr> at 0x737da0b6dbe0>)
+FAILED tests/core/utils/test_scientific_extractors.py::TestContentClassifier::test_quality_indicators - assert 0.4666666666666667 > 0.5
+FAILED tests/core/utils/test_scientific_extractors.py::TestIntegration::test_end_to_end_extraction - AssertionError: assert 'Stanford' in ['NLP', 'MIT', 'BERT', 'GPT']
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_citation_validation_pipeline - assert 0 > 0
+ +  where 0 = len([])
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_enhancement_pipeline - AttributeError: 'str' object has no attribute 'text'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_cross_reference_search - AttributeError: 'list' object has no attribute 'get'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_unified_metadata_extraction - AttributeError: 'str' object has no attribute 'text'
+FAILED tests/integration/test_arxiv_youtube_integration.py::TestArxivYouTubeIntegration::test_research_discovery_workflow - TypeError: list indices must be integers or slices, not str
+FAILED tests/mcp/test_prompts.py::TestFormatPromptResponse::test_formatting_with_data - assert '"items": ["a", "b"]' in 'Results\n\n## Data\n```json\n{\n  "count": 42,\n  "items": [\n    "a",\n    "b"\n  ]\n}\n```'
+FAILED tests/mcp/test_prompts.py::test_full_prompt_workflow - AssertionError: assert '2 workflow prompts' in 'Processing... Found 0 workflow prompts'
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_1_basic_search - AssertionError: assert 'results' in [{'source': 'widened_search', 'video_id': 'rl_basics_001', 'title': 'Reinforcement Learning Fundamentals', 'channel_name': 'TwoMinutePapers', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': 'SKAGSVyMr-w', 'title': 'Top Open Source GitHub Projects: AI, Code Security &amp; More! #127', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'widened_search', 'video_id': '7IPPHuLI1tk', 'title': 'Open Source Gems: AI Agents, Diffusion Models &amp; More! #136', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}]
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_2_search_with_no_results - AssertionError: assert 'results' in []
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_3_search_widening - AttributeError: 'list' object has no attribute 'get'
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_4_citation_extraction - AssertionError: assert None == '1810.04805'
+ +  where None = Citation(type='arxiv', text='arXiv:1810.04805', id=None, authors=[], year='', title='', context=None, confidence=0.8, position=None).id
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_5_metadata_extraction - TypeError: Transcript.__init__() got an unexpected keyword argument 'content'
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_6_channel_filtering - TypeError: list indices must be integers or slices, not str
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_7_youtube_api_search - AttributeError: 'UnifiedYouTubeSearch' object has no attribute 'youtube_api_key'. Did you mean: 'youtube_api'?
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_9_search_pagination - TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'offset'
+FAILED tests/scenarios/test_level0_scenarios.py::TestLevel0Scenarios::test_scenario_10_scientific_classification - TypeError: Transcript.__init__() got an unexpected keyword argument 'content'
+FAILED tests/test_reporter_verification.py::test_reporter_failure_example - AssertionError: Expected 5 but got 4
+assert 4 == 5
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_basic_search_without_optimization - AssertionError: assert 'query' in [{'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_002', 'title': 'Building with VERL: A Tutorial', 'channel_name': 'DiscoverAI', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'verl_001', 'title': 'VERL: Volcano Engine RL for LLMs', 'channel_name': 'TrelisResearch', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': 'SKAGSVyMr-w', 'title': 'Top Open Source GitHub Projects: AI, Code Security &amp; More! #127', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}, {'source': 'local_db', 'video_id': '7IPPHuLI1tk', 'title': 'Open Source Gems: AI Agents, Diffusion Models &amp; More! #136', 'channel_name': 'ManuAGI - AutoGPT Tutorials', 'content': '', 'url': '', 'published_at': '', 'score': 0.0}]
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_search_with_optimization - TypeError: list indices must be integers or slices, not str
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_channel_specific_search - TypeError: UnifiedYouTubeSearch.search() got an unexpected keyword argument 'channels'
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_query_optimizer_directly - AssertionError: Expected 'Volcano Engine Reinforcement Learning' in optimized query for 'VERL', got: VERL transcript
+assert 'volcano engine reinforcement learning' in 'verl transcript'
+ +  where 'volcano engine reinforcement learning' = <built-in method lower of str object at 0x737d114f3910>()
+ +    where <built-in method lower of str object at 0x737d114f3910> = 'Volcano Engine Reinforcement Learning'.lower
+ +  and   'verl transcript' = <built-in method lower of str object at 0x737ceb7afdb0>()
+ +    where <built-in method lower of str object at 0x737ceb7afdb0> = 'VERL transcript'.lower
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_empty_query_handling - TypeError: list indices must be integers or slices, not str
+FAILED tests/test_unified_search.py::TestUnifiedSearch::test_multi_word_search - TypeError: list indices must be integers or slices, not str
+======= 29 failed, 85 passed, 8 skipped, 2 warnings in 116.60s (0:01:56) =======

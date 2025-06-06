@@ -1,0 +1,295 @@
+[
+  {
+    "project": "darpa_crawl",
+    "status": {
+      "path": "/home/graham/workspace/experiments/darpa_crawl",
+      "name": "darpa_crawl",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "gitget",
+    "status": {
+      "path": "/home/graham/workspace/experiments/gitget",
+      "name": "gitget",
+      "has_pyproject": true,
+      "has_pytest_ini": false,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "aider-daemon",
+    "status": {
+      "path": "/home/graham/workspace/experiments/aider-daemon",
+      "name": "aider-daemon",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.11.12",
+      "needs_python_update": true,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Recreate venv with Python 3.10.11",
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "sparta",
+    "status": {
+      "path": "/home/graham/workspace/experiments/sparta",
+      "name": "sparta",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "marker",
+    "status": {
+      "path": "/home/graham/workspace/experiments/marker",
+      "name": "marker",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": true,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "arangodb",
+    "status": {
+      "path": "/home/graham/workspace/experiments/arangodb",
+      "name": "arangodb",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "youtube_transcripts",
+    "status": {
+      "path": "/home/graham/workspace/experiments/youtube_transcripts",
+      "name": "youtube_transcripts",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": true,
+      "has_tests_dir": true,
+      "pyproject_needs_update": false,
+      "pytest_ini_needs_update": false,
+      "venv_type": ".venv",
+      "python_version": "3.12.3",
+      "needs_python_update": true,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Recreate venv with Python 3.10.11"
+    ]
+  },
+  {
+    "project": "claude_max_proxy",
+    "status": {
+      "path": "/home/graham/workspace/experiments/claude_max_proxy",
+      "name": "claude_max_proxy",
+      "has_pyproject": true,
+      "has_pytest_ini": true,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "arxiv-mcp-server",
+    "status": {
+      "path": "/home/graham/workspace/mcp-servers/arxiv-mcp-server",
+      "name": "arxiv-mcp-server",
+      "has_pyproject": true,
+      "has_pytest_ini": false,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "unsloth_wip",
+    "status": {
+      "path": "/home/graham/workspace/experiments/unsloth_wip",
+      "name": "unsloth_wip",
+      "has_pyproject": true,
+      "has_pytest_ini": false,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": false,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Create test runner script",
+      "Install pytest-json-report"
+    ]
+  },
+  {
+    "project": "mcp-screenshot",
+    "status": {
+      "path": "/home/graham/workspace/experiments/mcp-screenshot",
+      "name": "mcp-screenshot",
+      "has_pyproject": true,
+      "has_pytest_ini": false,
+      "has_claude_test_reporter": true,
+      "has_pytest_json_report": false,
+      "has_test_runner": true,
+      "has_tests_dir": true,
+      "pyproject_needs_update": true,
+      "pytest_ini_needs_update": true,
+      "venv_type": ".venv",
+      "python_version": "3.10.11",
+      "needs_python_update": false,
+      "has_uv_lock": true,
+      "using_uv": true
+    },
+    "fixes": [],
+    "fixes_needed": [
+      "Update pyproject.toml",
+      "Create/update pytest.ini",
+      "Install pytest-json-report"
+    ]
+  }
+]
